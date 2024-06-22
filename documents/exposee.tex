@@ -1,0 +1,152 @@
+\documentclass[german,a4paper,pdftex,12pt]{article}
+\usepackage[T1]{fontenc} % utf8 <- produce real utf8 characters
+\usepackage[utf8]{inputenc} % utf8 <- accept utf8 input characters
+\usepackage[german]{babel}
+
+\usepackage[hscale=0.75,vscale=0.75,vmarginratio={85:100},heightrounded]{geometry} % less margin at bottom
+
+\usepackage{graphicx}
+\usepackage{latexsym}
+\usepackage{amsmath, amssymb}
+\usepackage{color, eurosym} % 6.9.07
+\usepackage{float}
+\usepackage{hyperref}
+\usepackage{xspace} % set a space if not fullstop / end of sentence
+\usepackage{times}
+
+% Seitenformatierungsbefehle
+\setlength{\textheight}{220mm}
+\setlength{\textwidth}{150mm}
+\setlength{\topmargin}{1mm}
+\setlength{\headheight}{0mm}
+\setlength{\headsep}{0mm}
+\setlength{\oddsidemargin}{5mm}
+\setlength{\parindent}{32mm}
+\setlength{\parskip}{0mm}
+\linespread{1.1}
+
+\sloppy  % verhindert, dass Wörter über den Rand herausragen
+
+
+% Makros
+\newcommand{\inv}[1]    {\frac{1}{#1}}
+\newcommand{\half}      {\frac{1}{2}}
+\newcommand{\R}{{\mathbb R}}
+\newcommand{\sect}[1] {\overline{#1}}
+\newcommand{\eqn}[2] {\begin{equation} \label{#1} #2 \end{equation}}
+\newcommand{\eqnn}[1] {\begin{equation*} #1 \end{equation*}}
+
+\title{% \vfill
+%\vspace{-2.0cm}
+    3D-Puzzle mit Greifarm}
+\author{
+    Maja Wantke \texttt{mwantke@stud.hs-bremen.de} \and
+    Lara Miritz \texttt{lmiritz@stud.hs-bremen.de} \and
+    Nikias Scharnke \texttt{nscharnke@stud.hs-bremen.de} \and
+    Sara-Ann Wong \texttt{swong@stud.hs-bremen.de} \\
+    Angewandte Mathematik für Medieninformatik \\
+    Hochschule Bremen}
+\date{ \today}
+\parindent 0pt
+\parskip 1ex
+
+% Document
+
+\begin{document}
+
+    \maketitle
+
+    \begin{abstract}
+        In diesem Projekt wird ein 3D-Puzzle-Spiel entwickelt, das durch einen Roboter-Greifarm gelöst werden soll.
+        Dabei wird der Greifarm durch Drag \& Drop interaktiv gesteuert.
+    \end{abstract}
+
+
+    \section{Motivation}
+    Roboterarmsimulationen sind ein wesentlicher Bestandteil der Robotikforschung und -ausbildung. Sie ermöglichen es,
+    komplexe Bewegungsabläufe zu visualisieren und zu verstehen. Unser Projekt soll eine benutzerfreundliche und
+    interaktive Anwendung bereitstellen, die es dem Benutzer ermöglicht, die Funktionsweise eines Roboterarms durch
+    direkte Interaktion zu erforschen.
+
+
+    \section{Verwandte Arbeiten}
+    Unser Projekt wurde durch verschiedene Arbeiten im Bereich der Roboterarmsimulation inspiriert.
+    Die Bachelorarbeit zur "`Steuerung eines 5 DOF Handhabungsroboters in Arbeitsraumkoordinaten"'\cite{Far01} von Julia Dubcova
+    erklärt die Grundlagen der Robotersteuerung und inverse Kinematik, die wir für unseren Roboterarm nutzen.
+    Eine weitere wichtige Quelle war die Veröffentlichung "`Tactile Robotic Assembly"'\cite{Far02} vom BBSR.
+    Diese half uns, die Interaktion des Roboterarms mit Objekten zu verstehen.
+    Beide Arbeiten haben uns wertvolle Ideen und Techniken geliefert, die wir in unserer interaktiven Roboterarmsimulation anwenden wollen.
+    Zur Umsetzung der Animationen orientieren wir uns an der neuesten Auflage des Werkes "`Computer Animation: Algorithms and Techniques"'\cite{Far03} von Rick Parent,
+    die unter anderem die Grundlagen der Animationsprogrammierung vermittelt.
+    Es behandelt Grundlagen wie Bewegung, Deformation und physikalische Simulation, um realistische Animationen zu erstellen.
+
+
+    \section{Gegenstand der Entwicklung}
+    Die voraussichtliche Implementierung umfasst:
+    \begin{enumerate}
+        \item Erstellung einer GUI mit Tkinter, um die Simulation darzustellen.
+        \item Implementierung eines Roboterarms mit zwei Segmenten, der durch inverse Kinematik gesteuert wird.
+        \item Möglichkeit für den Benutzer, Ziele per Mausinteraktion festzulegen, die der Roboterarm erreichen soll.
+        \item Implementierung von Drag-and-Drop-Funktionalität für das Bewegen von Objekten auf der Leinwand.
+    \end{enumerate}
+
+    Beispiele:
+    \begin{itemize}
+        \item Der Benutzer klickt auf die Leinwand, und der Roboterarm bewegt sich zum angegebenen Punkt.
+        \item Der Benutzer kann Puzzleteile greifen und an eine Position im Raster verschieben.
+    \end{itemize}
+
+    \section{Nutzung von Tools}
+    {\bf Programmiersprache:} Python \\
+    {\bf GUI-Toolkit:} Tkinter \\
+    {\bf Bibliotheken:} NumPy für mathematische Berechnungen, insbesondere die inverse Kinematik
+
+
+    \section{Evaluationsmethoden und erwartete Ergebnisse}
+    Für das Testen unseres Programms könnten wir Unittests verwenden, um jeden Freiheitsgrad zu testen und die zu erwartenden Ergebnisse zu überprüfen.
+    So könnte jede Variable einzeln geprüft werden, ob sie sich wie erwartet verhält.
+    Um zu testen, ob die Interaktivität funktioniert, wird geprüft, ob der Roboterarm korrekt auf Benutzerinteraktionen reagiert und die Ziele präzise erreicht.
+    Zudem kann Feedback von Testbenutzern eingeholt werden, um die Intuitivität und Benutzerfreundlichkeit der GUI zu bewerten.
+    Des Weiteren kann überprüft werden, ob die Simulation flüssig läuft und auf verschiedene Bildschirmgrößen skaliert.
+
+
+    \section{Arbeitspakete}
+    Die voraussichtlichen Aufgaben umfassen:
+    \begin{itemize}
+        \item Erstellung grundlegender Layouts
+        \item Implementierung des Roboterarms
+        \item Modellierung des Roboterarms
+        \item Implementierung der inversen Kinematik
+        \item Implementierung der Zielauswahl durch Klicks
+        \item Implementierung der Drag-and-Drop-Funktionalität
+        \item Durchführung von Funktionstests
+        \item Feedback-Integration und Optimierung
+    \end{itemize}
+
+    \newpage
+
+    \section{Zeitplan}
+    Die Erstellung des Zeitplans basiert auf der Annahme, dass die endgültige Abgabe des Projekts am 09. Juli 2024 erfolgt:
+    \begin{enumerate}
+        \item Woche: Initiale GUI-Erstellung und Grundstruktur des Projekts
+        \item Woche: Implementierung des Roboterarms und der inversen Kinematik
+        \item Woche: Hinzufügen der Interaktionsfunktionen und erster Funktionstest
+        \item Woche: Feedback sammeln, Tests und Optimierungen, Abschlussbericht und Präsentation
+    \end{enumerate}
+
+    \begin{thebibliography}{20} % Breite für die Nummern
+        \bibitem{Far01}
+        Julia Dubcova: {\it Steuerung eines 5-DOF-Handhabungsroboters in Arbeitsraumkoordinaten} \\
+        URL: https://reposit.haw-hamburg.de/handle/20.500.12738/5263 \\
+        (Stand: 10.06.2024 14:30 Uhr)
+        \bibitem{Far02}
+        Prof. Dr.-Ing. Oliver Tessmann et al.: {\it Tactile Robotic Assembly} \\
+        URL:
+        \raggedright https://www.bbsr.bund.de/BBSR/DE/veroeffentlichungen/bbsr-online/2024/bbsr-online-05-2024-dl.pdf \\
+        (Stand: 10.06.2024 14:25 Uhr)
+        \bibitem{Far03}
+        Rick Parent, {\it Computer Animation: Algorithms and Techniques} \\
+        2. Auflage, Morgan Kaufmann, ISBN 9780124158429
+    \end{thebibliography}
+
+\end{document}
