@@ -120,14 +120,21 @@ class GUI:
 
     def on_right_click(self, event):
         if self.selected_box:
-            self.canvas.itemconfig(self.selected_box, outline="")
+            box_coords = self.canvas.coords(self.selected_box)
+            for square in self.canvas.find_withtag("grid"):
+                square_coords = self.canvas.coords(square)
+                if self.is_inside(square_coords, box_coords):
+                    self.canvas.itemconfig(self.selected_box, outline="green")
+                    break
+                else:
+                    self.canvas.itemconfig(self.selected_box, outline="red")
             self.selected_box = None
         else:
             items = self.canvas.find_overlapping(event.x, event.y, event.x, event.y)
             for item in items:
                 if item in self.canvas.find_withtag("box"):
                     self.selected_box = item
-                    self.canvas.itemconfig(self.selected_box, outline="black")
+                    self.canvas.itemconfig(self.selected_box, outline="orange")
 
     def is_near_end_effector(self, x, y):
         ex, ey = self.robotic_arm.end_effector_pos
