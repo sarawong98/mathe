@@ -67,6 +67,7 @@ class GUI:
 
         self.create_grid()
         self.create_red_boxes()
+        self.create_legend()
 
         # Button zur Überprüfung der Positionen
         self.check_button = tk.Button(master, text="Überprüfen", command=self.check_positions)
@@ -98,6 +99,26 @@ class GUI:
                 color = colors.pop()
                 square = self.canvas.create_rectangle(x0, y0, x1, y1, fill='white', outline='black', tags="grid")
                 self.grid_colors[square] = color
+
+    def create_legend(self):
+        legend_x = 50
+        legend_y = 50
+        legend_width = 20
+        legend_height = 20
+        gap = 10
+        box_colors = {
+            'black': 'Generierte Box',
+            'orange': 'Vom Greifarm aufgenommene Box',
+            'red': 'Nicht richtig platzierte Box',
+            'green': 'Richtig platzierte Box'
+        }
+
+        for i, (color, description) in enumerate(box_colors.items()):
+            self.canvas.create_rectangle(legend_x, legend_y + i * (legend_height + gap),
+                                         legend_x + legend_width, legend_y + legend_height + i * (legend_height + gap),
+                                         fill="white", outline=color)
+            self.canvas.create_text(legend_x + legend_width + gap, legend_y + i * (legend_height + gap) + legend_height / 2,
+                                    text=description, anchor='w')
 
     def on_press(self, event):
         if self.is_near_end_effector(event.x, event.y):
