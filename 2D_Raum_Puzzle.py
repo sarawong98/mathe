@@ -146,6 +146,8 @@ class GUI:
                 square_coords = self.canvas.coords(square)
                 if self.is_inside(square_coords, box_coords):
                     self.canvas.itemconfig(self.selected_box, outline="green")
+                    # Einrasten der Box auf den Grid
+                    self.canvas.coords(self.selected_box, square_coords[0], square_coords[1], square_coords[2], square_coords[3])
                     break
                 else:
                     self.canvas.itemconfig(self.selected_box, outline="red")
@@ -200,8 +202,12 @@ class GUI:
             print(f"{correct_positions} von 4 Kästen sind korrekt platziert.")
 
     def is_inside(self, square_coords, box_coords):
-        return (square_coords[0] <= box_coords[0] and square_coords[1] <= box_coords[1] and
-                square_coords[2] >= box_coords[2] and square_coords[3] >= box_coords[3])
+        tolerance = 3
+        return (square_coords[0] - tolerance <= box_coords[0] and
+                square_coords[1] - tolerance <= box_coords[1] and
+                square_coords[2] + tolerance >= box_coords[2] and
+                square_coords[3] + tolerance >= box_coords[3])
+
 
 
 # Hauptfunktion
