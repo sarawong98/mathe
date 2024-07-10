@@ -11,29 +11,31 @@ GRID_SIZE = 50
 
 # Klasse für den Roboterarm
 class RoboticArm:
-    def __init__(self):
+    def __init__(self, arm_length_1, arm_length_2):
         self.shoulder_angle = 0
         self.elbow_angle = 0
         self.shoulder_pos = np.array([400, SCREEN_HEIGHT / 2])
-        self.end_effector_pos = self.shoulder_pos + np.array([ARM_LENGTH_1 + ARM_LENGTH_2, 0])
+        self.end_effector_pos = self.shoulder_pos + np.array([arm_length_1 + arm_length_2, 0])
+        self.arm_length_1 = arm_length_1
+        self.arm_length_2 = arm_length_2
 
     def move_to(self, target):
         # Inverse Kinematik zur Berechnung der Gelenkwinkel
         dx, dy = target[0] - self.shoulder_pos[0], target[1] - self.shoulder_pos[1]
         distance = np.hypot(dx, dy)
 
-        if distance > ARM_LENGTH_1 + ARM_LENGTH_2:
-            distance = ARM_LENGTH_1 + ARM_LENGTH_2
+        if distance > self.arm_length_1 + self.arm_length_2:
+            distance = self.arm_length_1 + self.arm_length_2
 
-        cos_angle2 = (distance ** 2 - ARM_LENGTH_1 ** 2 - ARM_LENGTH_2 ** 2) / (2 * ARM_LENGTH_1 * ARM_LENGTH_2)
+        cos_angle2 = (distance ** 2 - self.arm_length_1 ** 2 - self.arm_length_2 ** 2) / (2 * self.arm_length_1 * self.arm_length_2)
         if cos_angle2 < -1:
             cos_angle2 = -1
         elif cos_angle2 > 1:
             cos_angle2 = 1
 
         angle2 = np.arccos(cos_angle2)
-        angle1 = np.arctan2(dy, dx) - np.arctan2(ARM_LENGTH_2 * np.sin(angle2),
-                                                 ARM_LENGTH_1 + ARM_LENGTH_2 * np.cos(angle2))
+        angle1 = np.arctan2(dy, dx) - np.arctan2(self.arm_length_2 * np.sin(angle2),
+                                                 self.arm_length_1 + self.arm_length_2 * np.cos(angle2))
 
         self.shoulder_angle = angle1
         self.elbow_angle = angle2
@@ -41,9 +43,9 @@ class RoboticArm:
 
     def update_end_effector(self):
         elbow_pos = self.shoulder_pos + np.array(
-            [ARM_LENGTH_1 * np.cos(self.shoulder_angle), ARM_LENGTH_1 * np.sin(self.shoulder_angle)])
-        self.end_effector_pos = elbow_pos + np.array([ARM_LENGTH_2 * np.cos(self.shoulder_angle + self.elbow_angle),
-                                                      ARM_LENGTH_2 * np.sin(self.shoulder_angle + self.elbow_angle)])
+            [self.arm_length_1 * np.cos(self.shoulder_angle), self.arm_length_1 * np.sin(self.shoulder_angle)])
+        self.end_effector_pos = elbow_pos + np.array([self.arm_length_2 * np.cos(self.shoulder_angle + self.elbow_angle),
+                                                      self.arm_length_2 * np.sin(self.shoulder_angle + self.elbow_angle)])
 
 
 # Klasse für die GUI
@@ -53,8 +55,23 @@ class GUI:
         self.canvas = tk.Canvas(master, width=SCREEN_WIDTH, height=SCREEN_HEIGHT, bg='white')
         self.canvas.pack()
 
-        self.robotic_arm = RoboticArm()
+        # Initialisierung der Armlängen und des Roboterarms
+        self.arm_length_1 = ARM_LENGTH_1
+        self.arm_length_2 = ARM_LENGTH_2
+        self.robotic_arm = RoboticArm(self.arm_length_1, self.arm_length_2)
         self.draw_robotic_arm()
+
+        # Slider für Armlänge 1
+        self.arm_length1_slider = tk.Scale(master, from_=50, to=250, orient=tk.HORIZONTAL, label="Armlänge 1",
+                                           command=self.update_arm_lengths)
+        self.arm_length1_slider.pack()
+        self.arm_length1_slider.set(ARM_LENGTH_1)
+
+        # Slider für Armlänge 2
+        self.arm_length2_slider = tk.Scale(master, from_=50, to=250, orient=tk.HORIZONTAL, label="Armlänge 2",
+                                           command=self.update_arm_lengths)
+        self.arm_length2_slider.pack()
+        self.arm_length2_slider.set(ARM_LENGTH_2)
 
         self.selected_box = None  # Variable zur Speicherung des ausgewählten Kastens
         self.dragging = False
@@ -72,6 +89,12 @@ class GUI:
         # Button zur Überprüfung der Positionen
         self.check_button = tk.Button(master, text="Überprüfen", command=self.check_positions)
         self.check_button.pack()
+
+    def update_arm_lengths(self, event):
+        self.arm_length_1 = self.arm_length1_slider.get()
+        self.arm_length_2 = self.arm_length2_slider.get()
+        self.robotic_arm = RoboticArm(self.arm_length_1, self.arm_length_2)
+        self.draw_robotic_arm()
 
     def create_red_boxes(self):
         colors = ["red", "green", "blue", "yellow"]
@@ -167,11 +190,11 @@ class GUI:
         self.canvas.delete("arm")
 
         shoulder_pos = self.robotic_arm.shoulder_pos
-        elbow_pos = shoulder_pos + np.array([ARM_LENGTH_1 * np.cos(self.robotic_arm.shoulder_angle),
-                                             ARM_LENGTH_1 * np.sin(self.robotic_arm.shoulder_angle)])
+        elbow_pos = shoulder_pos + np.array([self.robotic_arm.arm_length_1 * np.cos(self.robotic_arm.shoulder_angle),
+                                             self.robotic_arm.arm_length_1 * np.sin(self.robotic_arm.shoulder_angle)])
         end_effector_pos = elbow_pos + np.array(
-            [ARM_LENGTH_2 * np.cos(self.robotic_arm.shoulder_angle + self.robotic_arm.elbow_angle),
-             ARM_LENGTH_2 * np.sin(self.robotic_arm.shoulder_angle + self.robotic_arm.elbow_angle)])
+            [self.robotic_arm.arm_length_2 * np.cos(self.robotic_arm.shoulder_angle + self.robotic_arm.elbow_angle),
+             self.robotic_arm.arm_length_2 * np.sin(self.robotic_arm.shoulder_angle + self.robotic_arm.elbow_angle)])
 
         # Zeichnen des ersten Arms
         self.canvas.create_line(shoulder_pos[0], shoulder_pos[1], elbow_pos[0], elbow_pos[1], width=5, fill='blue',
@@ -184,7 +207,6 @@ class GUI:
         # Zeichnen des Endeffektors
         self.canvas.create_oval(end_effector_pos[0] - 5, end_effector_pos[1] - 5, end_effector_pos[0] + 5,
                                 end_effector_pos[1] + 5, fill='blue', tags="arm")
-
 
     def check_positions(self):
         correct_positions = 0
@@ -207,7 +229,6 @@ class GUI:
                 square_coords[1] - tolerance <= box_coords[1] and
                 square_coords[2] + tolerance >= box_coords[2] and
                 square_coords[3] + tolerance >= box_coords[3])
-
 
 
 # Hauptfunktion
