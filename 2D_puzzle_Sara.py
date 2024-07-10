@@ -260,9 +260,6 @@ class GUI:
                 grid_pos = self.grid_positions[square]
                 square_coords = self.canvas.coords(square)
 
-                print(pos)
-                print(grid_pos)
-
                 if self.is_inside(square_coords, piece_coords) and pos == grid_pos:
                     correct_positions += 1
         if correct_positions == 4:
