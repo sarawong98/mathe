@@ -191,9 +191,6 @@ class GUI:
             box_coords = self.canvas.coords(self.selected_box)
             for square in self.canvas.find_withtag("grid"):
                 square_coords = self.canvas.coords(square)
-                print(square_coords)
-                print(event.x)
-                print(event.y)
                 if self.is_inside(square_coords, box_coords):
                     self.canvas.itemconfig(self.selected_box, outline="green")
                     self.canvas.coords(self.selected_box, square_coords[0], square_coords[1], square_coords[2],
