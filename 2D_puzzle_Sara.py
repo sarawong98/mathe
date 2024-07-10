@@ -138,7 +138,7 @@ class GUI:
         self.puzzle_image = self.puzzle_image.resize((2 * GRID_SIZE, 2 * GRID_SIZE), Image.Resampling.LANCZOS)
         self.puzzle_pieces = []
         positions = [(0, 0), (0, 1), (1, 0), (1, 1)]
-        #random.shuffle(positions)
+        random.shuffle(positions)
 
         for i in range(2):
             for j in range(2):
@@ -150,7 +150,7 @@ class GUI:
                                                  SCREEN_HEIGHT / 2 - 100 + pos[1] * (BOX_SIZE + 10), image=box_image,
                                                  tags="puzzle_piece")
                 self.canvas.tag_bind(piece, "<Button-3>", self.on_right_click)
-                self.puzzle_pieces.append((piece, pos, box_image))
+                self.puzzle_pieces.append((piece, (i, j), box_image))
                 self.canvas.tag_raise(piece)  # Ensure puzzle pieces are on top
 
     def create_grid(self):
