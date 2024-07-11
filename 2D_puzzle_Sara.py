@@ -1,8 +1,13 @@
+# Erstellung der GUI
 import tkinter as tk
 from tkinter import messagebox
+# Verarbeitung des Bilds zum Puzzeln
 from PIL import Image, ImageTk
+# mathematische Sachen
 import numpy as np
+# zufällige Sachen
 import random
+# Dateipfade
 import os
 
 # Konstanten für die Bildschirmgröße und den Roboterarm
@@ -11,8 +16,9 @@ ARM_LENGTH_1, ARM_LENGTH_2, ARM_LENGTH_3 = 150, 150, 150
 BOX_SIZE = 50
 GRID_SIZE = 50
 
-# Klasse für den Roboterarm
+# Klasse für Modellierung des Roboterarms und dessen Bewegung
 class RoboticArm:
+    # Roboterarm beim Starten des Programms
     def __init__(self, num_joints=2):
         self.num_joints = num_joints
         self.shoulder_angle = 0
@@ -22,14 +28,17 @@ class RoboticArm:
         self.arm_lengths = [ARM_LENGTH_1, ARM_LENGTH_2, ARM_LENGTH_3]
         self.update_end_effector()
 
+    # Anzahl der Gelenke
     def set_num_joints(self, num_joints):
         self.num_joints = num_joints
         self.update_end_effector()
 
+    # Länge der Arme
     def set_arm_length(self, index, length):
         self.arm_lengths[index] = length
         self.update_end_effector()
 
+    # berechnet Winkel und Position der einzelnen Gelenke
     def move_to(self, target):
         dx, dy = target[0] - self.shoulder_pos[0], target[1] - self.shoulder_pos[1]
         distance = np.hypot(dx, dy)
@@ -61,6 +70,7 @@ class RoboticArm:
             self.elbow_angle = np.arccos(cos_elbow_angle) - np.arctan2(y2, x2)
         self.update_end_effector()
 
+    # aktualisiert die Position des Endeffektors
     def update_end_effector(self):
         elbow_pos = self.shoulder_pos + np.array([self.arm_lengths[0] * np.cos(self.shoulder_angle), self.arm_lengths[0] * np.sin(self.shoulder_angle)])
         if self.num_joints == 1:
@@ -70,7 +80,6 @@ class RoboticArm:
         elif self.num_joints == 3:
             wrist_pos = elbow_pos + np.array([self.arm_lengths[1] * np.cos(self.shoulder_angle + self.elbow_angle), self.arm_lengths[1] * np.sin(self.shoulder_angle + self.elbow_angle)])
             self.end_effector_pos = wrist_pos + np.array([self.arm_lengths[2] * np.cos(self.shoulder_angle + self.elbow_angle + self.wrist_angle), self.arm_lengths[2] * np.sin(self.shoulder_angle + self.elbow_angle + self.wrist_angle)])
-
 # Klasse für die GUI
 class GUI:
     def __init__(self, master):
@@ -78,74 +87,76 @@ class GUI:
         self.canvas = tk.Canvas(master, width=SCREEN_WIDTH, height=SCREEN_HEIGHT, bg='white')
         self.canvas.pack()
 
-        # Initialize the robotic arm
+        # initialisiert den Roboterarm
         self.robotic_arm = RoboticArm()
         self.draw_robotic_arm()
 
-        # Initialize variables for drag-and-drop
+        # Initialisiert die Variablen für Drag-and-Drop
         self.selected_piece = None
         self.dragging = False
 
-        # Event listeners for mouse events
+        # Eventlistener für die Maus
         self.canvas.bind("<ButtonPress-1>", self.on_press)
         self.canvas.bind("<B1-Motion>", self.on_drag)
         self.canvas.bind("<ButtonRelease-1>", self.on_release)
         self.canvas.bind("<Button-3>", self.on_right_click)
 
-        # Create puzzle pieces instead of red boxes
+        # Puzzelteile erstellen
         self.create_grid()
         self.create_puzzle_pieces()
         self.create_legend()
 
-        # Configuration area at the top right
+        # Menübereich oben rechts
         self.create_config_panel()
 
-        # Button to check positions
+        # Button zum überprüfen
         self.check_button = tk.Button(master, text="Check Positions", command=self.check_positions)
         self.check_button.pack()
 
+    # Menübereich
     def create_config_panel(self):
         config_frame = tk.Frame(self.master, bd=2, relief=tk.RIDGE)
-        config_frame.place(x=SCREEN_WIDTH - 250, y=10, width=240, height=260)
+        config_frame.place(x=SCREEN_WIDTH - 250, y=10, width=240, height=300)
 
         tk.Label(config_frame, text="Konfiguration").pack(pady=10)
         tk.Label(config_frame, text="Anzahl der Gelenke:").pack()
 
+        # Anzahl der Gelenke einstellen (Anfangswert 2)
         self.num_joints_var = tk.IntVar(value=2)
         joints_option_menu = tk.OptionMenu(config_frame, self.num_joints_var, 1, 2, 3, command=self.update_num_joints)
         joints_option_menu.pack(pady=5)
 
+        # Armlängen 1, 2 und 3 einstellen (Startwerte oben)
         tk.Label(config_frame, text="Armlänge 1:").pack()
         self.arm_length1_slider = tk.Scale(config_frame, from_=50, to_=300, orient=tk.HORIZONTAL, command=self.update_arm_length1)
         self.arm_length1_slider.set(ARM_LENGTH_1)
         self.arm_length1_slider.pack()
-
         tk.Label(config_frame, text="Armlänge 2:").pack()
         self.arm_length2_slider = tk.Scale(config_frame, from_=50, to_=300, orient=tk.HORIZONTAL, command=self.update_arm_length2)
         self.arm_length2_slider.set(ARM_LENGTH_2)
         self.arm_length2_slider.pack()
-
         tk.Label(config_frame, text="Armlänge 3:").pack()
         self.arm_length3_slider = tk.Scale(config_frame, from_=50, to_=300, orient=tk.HORIZONTAL, command=self.update_arm_length3)
         self.arm_length3_slider.set(ARM_LENGTH_3)
         self.arm_length3_slider.pack()
 
+    # aktualisiert die Anzahl der Gelenke
     def update_num_joints(self, value):
         self.robotic_arm.set_num_joints(int(value))
         self.draw_robotic_arm()
 
+    # aktualisiert die Armlängen
     def update_arm_length1(self, value):
         self.robotic_arm.set_arm_length(0, int(value))
         self.draw_robotic_arm()
-
     def update_arm_length2(self, value):
         self.robotic_arm.set_arm_length(1, int(value))
         self.draw_robotic_arm()
-
     def update_arm_length3(self, value):
         self.robotic_arm.set_arm_length(2, int(value))
         self.draw_robotic_arm()
 
+    # erstellt Puzzleteile aus dem Bild und ordnet sie zufällig an
     def create_puzzle_pieces(self):
         script_dir = os.path.dirname(os.path.abspath(__file__))
         image_path = os.path.join(script_dir, "math-puzzles-image.jpg")
@@ -164,6 +175,7 @@ class GUI:
                 self.puzzle_pieces.append((piece, (i, j), box_image))
                 self.canvas.tag_raise(piece)
 
+    # erstellt das Grid wo die Puzzleteile platziert werden sollen
     def create_grid(self):
         offset_x = 600
         offset_y = SCREEN_HEIGHT / 2 - 100
@@ -175,16 +187,19 @@ class GUI:
                 square = self.canvas.create_rectangle(x0, y0, x1, y1, fill='white', outline='black', tags="grid")
                 self.grid_positions[square] = (i, j)
 
+    # Legende mit Anweisungen für den Spieler
     def create_legend(self):
         legend_items = ["Mit der linken Maustaste den Greifarm an die gewünschte Position verschieben",
                         "Zum Aufnehmen eines Puzzleteils Rechtsklick verwenden"]
         for index, text in enumerate(legend_items):
             self.canvas.create_text(50, 30 + index * 20, text=text, anchor='w')
 
+    # wählt den Roboterarm an
     def on_press(self, event):
         if self.is_near_end_effector(event.x, event.y):
             self.dragging = True
 
+    # lässt den Roboterarm der Maus folgen
     def on_drag(self, event):
         if self.dragging:
             target = np.array([event.x, event.y])
@@ -195,9 +210,11 @@ class GUI:
                 ex, ey = self.robotic_arm.end_effector_pos
                 self.canvas.coords(piece, ex, ey)
 
+    # beendet das Ziehen des Arms
     def on_release(self, event):
         self.dragging = False
 
+    # hebt wenn möglich ein Puzzleteil auf oder lässt es los
     def on_right_click(self, event):
         if self.selected_piece:
             piece, pos, box_image = self.selected_piece
@@ -217,10 +234,12 @@ class GUI:
                     ex, ey = self.robotic_arm.end_effector_pos
                     self.canvas.coords(piece, ex, ey)
 
+    # überprüft ob ein Punkt nah genug am Endeffektor ist
     def is_near_end_effector(self, x, y):
         ex, ey = self.robotic_arm.end_effector_pos
         return np.hypot(ex - x, ey - y) < 10
 
+    # zeichnet den Roboterarm
     def draw_robotic_arm(self):
         self.canvas.delete("arm")
         shoulder_pos = self.robotic_arm.shoulder_pos
@@ -236,7 +255,6 @@ class GUI:
                                               self.robotic_arm.arm_lengths[1] * np.sin(self.robotic_arm.shoulder_angle + self.robotic_arm.elbow_angle)])
             end_effector_pos = wrist_pos + np.array([self.robotic_arm.arm_lengths[2] * np.cos(self.robotic_arm.shoulder_angle + self.robotic_arm.elbow_angle + self.robotic_arm.wrist_angle),
                                                      self.robotic_arm.arm_lengths[2] * np.sin(self.robotic_arm.shoulder_angle + self.robotic_arm.elbow_angle + self.robotic_arm.wrist_angle)])
-
         self.canvas.create_line(shoulder_pos[0], shoulder_pos[1], elbow_pos[0], elbow_pos[1], width=5, fill='blue', tags="arm")
         if self.robotic_arm.num_joints >= 2:
             self.canvas.create_line(elbow_pos[0], elbow_pos[1], end_effector_pos[0], end_effector_pos[1], width=5, fill='blue', tags="arm")
@@ -246,6 +264,7 @@ class GUI:
             self.canvas.create_line(wrist_pos[0], wrist_pos[1], end_effector_pos[0], end_effector_pos[1], width=5, fill='blue', tags="arm")
         self.canvas.create_oval(end_effector_pos[0] - 5, end_effector_pos[1] - 5, end_effector_pos[0] + 5, end_effector_pos[1] + 5, fill='blue', tags="arm")
 
+    # überprüft ob alle Puzzleteile korrekt platziert wurden
     def check_positions(self):
         correct_positions = 0
         for piece, pos, box_image in self.puzzle_pieces:
@@ -260,6 +279,7 @@ class GUI:
         else:
             print(f"{correct_positions} von 4 Kästen sind korrekt platziert.")
 
+    # prüft ob ein Puzzleteil vollständig im Gitter liegt (+ / - 3)
     def is_inside(self, square_coords, piece_coords):
         tolerance = 3
         piece_x0 = piece_coords[0] - BOX_SIZE / 2
@@ -270,14 +290,11 @@ class GUI:
                 square_coords[1] - tolerance <= piece_y0 and
                 square_coords[2] + tolerance >= piece_x1 and
                 square_coords[3] + tolerance >= piece_y1)
-
 # Hauptfunktion
 def main():
     root = tk.Tk()
     root.title("Robotic Arm Simulation")
     gui = GUI(root)
     root.mainloop()
-
 if __name__ == "__main__":
     main()
-
