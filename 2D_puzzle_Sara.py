@@ -1,5 +1,4 @@
 import tkinter as tk
-from tkinter import messagebox
 from PIL import Image, ImageTk
 import numpy as np
 import random
@@ -62,16 +61,16 @@ class RoboticArm:
                 target = self.shoulder_pos + distance * np.array([dx, dy]) / distance
 
             # Berechnung der Winkel für die einzelnen Segmente
-            cos_angle2 = (distance**2 - ARM_LENGTH_1**2 - ARM_LENGTH_2**2) / (2 * ARM_LENGTH_1 * ARM_LENGTH_2)
+            cos_angle2 = (distance**2 - self.arm_lengths[0]**2 - self.arm_lengths[1]**2) / (2 * self.arm_lengths[0] * self.arm_lengths[1])
             cos_angle2 = np.clip(cos_angle2, -1.0, 1.0)
             angle2 = np.arccos(cos_angle2)
 
-            k1 = ARM_LENGTH_1 + ARM_LENGTH_2 * cos_angle2
-            k2 = ARM_LENGTH_2 * np.sin(angle2)
+            k1 = self.arm_lengths[0] + self.arm_lengths[1] * cos_angle2
+            k2 = self.arm_lengths[1] * np.sin(angle2)
             angle1 = np.arctan2(dy, dx) - np.arctan2(k2, k1)
 
             # Berechnung des Handgelenkwinkels
-            wrist_target = target - np.array([ARM_LENGTH_3 * np.cos(angle1 + angle2), ARM_LENGTH_3 * np.sin(angle1 + angle2)])
+            wrist_target = target - np.array([self.arm_lengths[2] * np.cos(angle1 + angle2), self.arm_lengths[2] * np.sin(angle1 + angle2)])
             wrist_dx, wrist_dy = wrist_target[0] - self.shoulder_pos[0], wrist_target[1] - self.shoulder_pos[1]
             wrist_angle1 = np.arctan2(wrist_dy, wrist_dx)
             wrist_angle2 = angle1 + angle2 - wrist_angle1
@@ -261,10 +260,10 @@ class GUI:
         elif self.robotic_arm.num_joints == 3:
             # Zeichnet den Roboterarm auf der Leinwand
             
-            self.wrist_pos = self.elbow_pos + np.array([ARM_LENGTH_2 * np.cos(self.robotic_arm.shoulder_angle + self.robotic_arm.elbow_angle),
-                                                        ARM_LENGTH_2 * np.sin(self.robotic_arm.shoulder_angle + self.robotic_arm.elbow_angle)])
-            self.end_effector_pos = self.wrist_pos + np.array([ARM_LENGTH_3 * np.cos(self.robotic_arm.shoulder_angle + self.robotic_arm.elbow_angle + self.robotic_arm.wrist_angle),
-                                                               ARM_LENGTH_3 * np.sin(self.robotic_arm.shoulder_angle + self.robotic_arm.elbow_angle + self.robotic_arm.wrist_angle)])
+            self.wrist_pos = self.elbow_pos + np.array([self.robotic_arm.arm_lengths[1] * np.cos(self.robotic_arm.shoulder_angle + self.robotic_arm.elbow_angle),
+                                                        self.robotic_arm.arm_lengths[1] * np.sin(self.robotic_arm.shoulder_angle + self.robotic_arm.elbow_angle)])
+            self.end_effector_pos = self.wrist_pos + np.array([self.robotic_arm.arm_lengths[2] * np.cos(self.robotic_arm.shoulder_angle + self.robotic_arm.elbow_angle + self.robotic_arm.wrist_angle),
+                                                               self.robotic_arm.arm_lengths[2] * np.sin(self.robotic_arm.shoulder_angle + self.robotic_arm.elbow_angle + self.robotic_arm.wrist_angle)])
 
         # Zeichnen des ersten Arms
         self.canvas.create_line(self.shoulder_pos[0], self.shoulder_pos[1], self.elbow_pos[0], self.elbow_pos[1], width=5, fill='blue', tags="arm")
