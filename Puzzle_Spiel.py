@@ -304,9 +304,9 @@ class GUI:
                 if self.is_inside(square_coords, piece_coords) and pos == grid_pos:
                     correct_positions += 1
         if correct_positions == 4:
-            print("Herzlichen Glückwunsch! Alle Kästen sind korrekt platziert!")
+            print("Herzlichen Glückwunsch! Alle Puzzleteile sind korrekt platziert!")
         else:
-            print(f"{correct_positions} von 4 Kästen sind korrekt platziert.")
+            print(f"{correct_positions} von 4 Puzzleteilen sind korrekt platziert.")
 
     def is_inside(self, square_coords, piece_coords):
         tolerance = 3
