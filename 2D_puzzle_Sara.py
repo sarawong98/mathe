@@ -1,5 +1,4 @@
 import tkinter as tk
-from tkinter import messagebox
 from PIL import Image, ImageTk
 import numpy as np
 import random
@@ -18,7 +17,12 @@ class RoboticArm:
         self.shoulder_angle = 0
         self.elbow_angle = 0
         self.wrist_angle = 0
+        self.angle1_new = 0
+
+        self.wrist_pos = 0
+        self.elbow_pos = 0
         self.shoulder_pos = np.array([400, SCREEN_HEIGHT / 2])
+
         self.arm_lengths = [ARM_LENGTH_1, ARM_LENGTH_2, ARM_LENGTH_3]
         self.update_end_effector()
 
@@ -33,43 +37,65 @@ class RoboticArm:
     def move_to(self, target):
         dx, dy = target[0] - self.shoulder_pos[0], target[1] - self.shoulder_pos[1]
         distance = np.hypot(dx, dy)
+
         if self.num_joints == 1:
             self.shoulder_angle = np.arctan2(dy, dx)
             distance = min(distance, self.arm_lengths[0])
+
         elif self.num_joints == 2:
             distance = min(distance, self.arm_lengths[0] + self.arm_lengths[1])
             cos_angle2 = (distance ** 2 - self.arm_lengths[0] ** 2 - self.arm_lengths[1] ** 2) / (2 * self.arm_lengths[0] * self.arm_lengths[1])
             cos_angle2 = np.clip(cos_angle2, -1, 1)
             self.elbow_angle = np.arccos(cos_angle2)
-            self.shoulder_angle = np.arctan2(dy, dx) - np.arctan2(self.arm_lengths[1] * np.sin(self.elbow_angle), self.arm_lengths[0] + self.arm_lengths[1] * np.cos(self.elbow_angle))
+            self.shoulder_angle = np.arctan2(dy, dx) - np.arctan2(self.arm_lengths[1] * np.sin(self.elbow_angle),
+                                                                  self.arm_lengths[0] + self.arm_lengths[1] * np.cos(self.elbow_angle))
+
         elif self.num_joints == 3:
-            distance = min(distance, self.arm_lengths[0] + self.arm_lengths[1] + self.arm_lengths[2])
-            cos_angle2 = (distance ** 2 - self.arm_lengths[0] ** 2 - self.arm_lengths[1] ** 2 - self.arm_lengths[2] ** 2) / (2 * self.arm_lengths[0] * distance)
-            cos_angle2 = np.clip(cos_angle2, -1, 1)
+            # Inverse Kinematik zur Berechnung der Gelenkwinkel
+            dx, dy = target[0] - self.shoulder_pos[0], target[1] - self.shoulder_pos[1]
+            distance = np.hypot(dx, dy)
+
+            # Begrenzung der maximalen Reichweite des Arms
+            if distance > sum(self.arm_lengths):
+                distance = sum(self.arm_lengths)
+                target = self.shoulder_pos + distance * np.array([dx, dy]) / distance
+
+            # Berechnung der Winkel für die einzelnen Segmente
+            cos_angle2 = (distance**2 - self.arm_lengths[0]**2 - self.arm_lengths[1]**2) / (2 * self.arm_lengths[0] * self.arm_lengths[1])
+            cos_angle2 = np.clip(cos_angle2, -1.0, 1.0)
             angle2 = np.arccos(cos_angle2)
-            self.shoulder_angle = np.arctan2(dy, dx) - angle2
-            x1 = self.arm_lengths[0] * np.cos(self.shoulder_angle)
-            y1 = self.arm_lengths[0] * np.sin(self.shoulder_angle)
-            x2 = target[0] - self.shoulder_pos[0] - x1
-            y2 = target[1] - self.shoulder_pos[1] - y1
-            d2 = np.hypot(x2, y2)
-            cos_angle3 = (d2 ** 2 - self.arm_lengths[1] ** 2 - self.arm_lengths[2] ** 2) / (2 * self.arm_lengths[1] * self.arm_lengths[2])
-            cos_angle3 = np.clip(cos_angle3, -1, 1)
-            self.wrist_angle = np.arccos(cos_angle3)
-            cos_elbow_angle = (d2 ** 2 + self.arm_lengths[1] ** 2 - self.arm_lengths[2] ** 2) / (2 * d2 * self.arm_lengths[1])
-            cos_elbow_angle = np.clip(cos_elbow_angle, -1, 1)
-            self.elbow_angle = np.arccos(cos_elbow_angle) - np.arctan2(y2, x2)
+
+            k1 = self.arm_lengths[0] + self.arm_lengths[1] * cos_angle2
+            k2 = self.arm_lengths[1] * np.sin(angle2)
+            angle1 = np.arctan2(dy, dx) - np.arctan2(k2, k1)
+
+            # Berechnung des Handgelenkwinkels
+            wrist_target = target - np.array([self.arm_lengths[2] * np.cos(angle1 + angle2), self.arm_lengths[2] * np.sin(angle1 + angle2)])
+            wrist_dx, wrist_dy = wrist_target[0] - self.shoulder_pos[0], wrist_target[1] - self.shoulder_pos[1]
+            wrist_angle1 = np.arctan2(wrist_dy, wrist_dx)
+            wrist_angle2 = angle1 + angle2 - wrist_angle1
+
+            # Aktualisierung der Gelenkwinkel
+            self.shoulder_angle = angle1
+            self.elbow_angle = angle2
+            self.wrist_angle = wrist_angle2
+     
         self.update_end_effector()
 
     def update_end_effector(self):
-        elbow_pos = self.shoulder_pos + np.array([self.arm_lengths[0] * np.cos(self.shoulder_angle), self.arm_lengths[0] * np.sin(self.shoulder_angle)])
         if self.num_joints == 1:
-            self.end_effector_pos = elbow_pos
+            self.elbow_pos = self.shoulder_pos + np.array([self.arm_lengths[0] * np.cos(self.shoulder_angle),
+                                                           self.arm_lengths[0] * np.sin(self.shoulder_angle)])
+            self.end_effector_pos = self.elbow_pos
         elif self.num_joints == 2:
-            self.end_effector_pos = elbow_pos + np.array([self.arm_lengths[1] * np.cos(self.shoulder_angle + self.elbow_angle), self.arm_lengths[1] * np.sin(self.shoulder_angle + self.elbow_angle)])
+            self.elbow_pos = self.shoulder_pos + np.array([self.arm_lengths[0] * np.cos(self.shoulder_angle),
+                                                           self.arm_lengths[0] * np.sin(self.shoulder_angle)])
+            self.end_effector_pos = self.elbow_pos + np.array([self.arm_lengths[1] * np.cos(self.shoulder_angle + self.elbow_angle),
+                                                               self.arm_lengths[1] * np.sin(self.shoulder_angle + self.elbow_angle)])
         elif self.num_joints == 3:
-            wrist_pos = elbow_pos + np.array([self.arm_lengths[1] * np.cos(self.shoulder_angle + self.elbow_angle), self.arm_lengths[1] * np.sin(self.shoulder_angle + self.elbow_angle)])
-            self.end_effector_pos = wrist_pos + np.array([self.arm_lengths[2] * np.cos(self.shoulder_angle + self.elbow_angle + self.wrist_angle), self.arm_lengths[2] * np.sin(self.shoulder_angle + self.elbow_angle + self.wrist_angle)])
+            self.elbow_pos = self.shoulder_pos + np.array([self.arm_lengths[0] * np.cos(self.shoulder_angle), self.arm_lengths[0] * np.sin(self.shoulder_angle)])
+            self.wrist_pos = self.elbow_pos + np.array([self.arm_lengths[1] * np.cos(self.shoulder_angle + self.elbow_angle), self.arm_lengths[1] * np.sin(self.shoulder_angle + self.elbow_angle)])
+            self.end_effector_pos = self.wrist_pos + np.array([self.arm_lengths[2] * np.cos(self.shoulder_angle + self.elbow_angle + self.wrist_angle), self.arm_lengths[2] * np.sin(self.shoulder_angle + self.elbow_angle + self.wrist_angle)])
 
 # Klasse für die GUI
 class GUI:
@@ -106,7 +132,7 @@ class GUI:
 
     def create_config_panel(self):
         config_frame = tk.Frame(self.master, bd=2, relief=tk.RIDGE)
-        config_frame.place(x=SCREEN_WIDTH - 250, y=10, width=240, height=260)
+        config_frame.place(x=SCREEN_WIDTH - 250, y=10, width=240, height=300)
 
         tk.Label(config_frame, text="Konfiguration").pack(pady=10)
         tk.Label(config_frame, text="Anzahl der Gelenke:").pack()
@@ -223,28 +249,33 @@ class GUI:
 
     def draw_robotic_arm(self):
         self.canvas.delete("arm")
-        shoulder_pos = self.robotic_arm.shoulder_pos
-        elbow_pos = shoulder_pos + np.array([self.robotic_arm.arm_lengths[0] * np.cos(self.robotic_arm.shoulder_angle),
-                                             self.robotic_arm.arm_lengths[0] * np.sin(self.robotic_arm.shoulder_angle)])
+        self.shoulder_pos = self.robotic_arm.shoulder_pos
+        self.elbow_pos = self.shoulder_pos + np.array([self.robotic_arm.arm_lengths[0] * np.cos(self.robotic_arm.shoulder_angle),
+                                                       self.robotic_arm.arm_lengths[0] * np.sin(self.robotic_arm.shoulder_angle)])
         if self.robotic_arm.num_joints == 1:
-            end_effector_pos = elbow_pos
+            self.end_effector_pos = self.elbow_pos
         elif self.robotic_arm.num_joints == 2:
-            end_effector_pos = elbow_pos + np.array([self.robotic_arm.arm_lengths[1] * np.cos(self.robotic_arm.shoulder_angle + self.robotic_arm.elbow_angle),
-                                                     self.robotic_arm.arm_lengths[1] * np.sin(self.robotic_arm.shoulder_angle + self.robotic_arm.elbow_angle)])
+            self.end_effector_pos = self.elbow_pos + np.array([self.robotic_arm.arm_lengths[1] * np.cos(self.robotic_arm.shoulder_angle + self.robotic_arm.elbow_angle),
+                                                               self.robotic_arm.arm_lengths[1] * np.sin(self.robotic_arm.shoulder_angle + self.robotic_arm.elbow_angle)])
         elif self.robotic_arm.num_joints == 3:
-            wrist_pos = elbow_pos + np.array([self.robotic_arm.arm_lengths[1] * np.cos(self.robotic_arm.shoulder_angle + self.robotic_arm.elbow_angle),
-                                              self.robotic_arm.arm_lengths[1] * np.sin(self.robotic_arm.shoulder_angle + self.robotic_arm.elbow_angle)])
-            end_effector_pos = wrist_pos + np.array([self.robotic_arm.arm_lengths[2] * np.cos(self.robotic_arm.shoulder_angle + self.robotic_arm.elbow_angle + self.robotic_arm.wrist_angle),
-                                                     self.robotic_arm.arm_lengths[2] * np.sin(self.robotic_arm.shoulder_angle + self.robotic_arm.elbow_angle + self.robotic_arm.wrist_angle)])
+            # Zeichnet den Roboterarm auf der Leinwand
+            
+            self.wrist_pos = self.elbow_pos + np.array([self.robotic_arm.arm_lengths[1] * np.cos(self.robotic_arm.shoulder_angle + self.robotic_arm.elbow_angle),
+                                                        self.robotic_arm.arm_lengths[1] * np.sin(self.robotic_arm.shoulder_angle + self.robotic_arm.elbow_angle)])
+            self.end_effector_pos = self.wrist_pos + np.array([self.robotic_arm.arm_lengths[2] * np.cos(self.robotic_arm.shoulder_angle + self.robotic_arm.elbow_angle + self.robotic_arm.wrist_angle),
+                                                               self.robotic_arm.arm_lengths[2] * np.sin(self.robotic_arm.shoulder_angle + self.robotic_arm.elbow_angle + self.robotic_arm.wrist_angle)])
 
-        self.canvas.create_line(shoulder_pos[0], shoulder_pos[1], elbow_pos[0], elbow_pos[1], width=5, fill='blue', tags="arm")
-        if self.robotic_arm.num_joints >= 2:
-            self.canvas.create_line(elbow_pos[0], elbow_pos[1], end_effector_pos[0], end_effector_pos[1], width=5, fill='blue', tags="arm")
+        # Zeichnen des ersten Arms
+        self.canvas.create_line(self.shoulder_pos[0], self.shoulder_pos[1], self.elbow_pos[0], self.elbow_pos[1], width=5, fill='blue', tags="arm")
+        if self.robotic_arm.num_joints == 2:
+            self.canvas.create_line(self.elbow_pos[0], self.elbow_pos[1], self.end_effector_pos[0], self.end_effector_pos[1], width=5, fill='blue', tags="arm")
         if self.robotic_arm.num_joints == 3:
-            wrist_pos = elbow_pos + np.array([self.robotic_arm.arm_lengths[1] * np.cos(self.robotic_arm.shoulder_angle + self.robotic_arm.elbow_angle),
-                                              self.robotic_arm.arm_lengths[1] * np.sin(self.robotic_arm.shoulder_angle + self.robotic_arm.elbow_angle)])
-            self.canvas.create_line(wrist_pos[0], wrist_pos[1], end_effector_pos[0], end_effector_pos[1], width=5, fill='blue', tags="arm")
-        self.canvas.create_oval(end_effector_pos[0] - 5, end_effector_pos[1] - 5, end_effector_pos[0] + 5, end_effector_pos[1] + 5, fill='blue', tags="arm")
+            # Zeichnen des zweiten Arms
+            self.canvas.create_line(self.elbow_pos[0], self.elbow_pos[1], self.wrist_pos[0], self.wrist_pos[1], width=5, fill='blue', tags="arm")
+            # Zeichnen des dritten Arms
+            self.canvas.create_line(self.wrist_pos[0], self.wrist_pos[1], self.end_effector_pos[0], self.end_effector_pos[1], width=5, fill='blue', tags="arm")
+
+        self.canvas.create_oval(self.end_effector_pos[0] - 5, self.end_effector_pos[1] - 5, self.end_effector_pos[0] + 5, self.end_effector_pos[1] + 5, fill='blue', tags="arm")
 
     def check_positions(self):
         correct_positions = 0
@@ -280,4 +311,3 @@ def main():
 
 if __name__ == "__main__":
     main()
-
