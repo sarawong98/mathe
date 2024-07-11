@@ -12,6 +12,7 @@ GRID_SIZE = 50
 
 # Klasse für den Roboterarm
 class RoboticArm:
+    # initialisiert den Roboter Arm mit Startwerten
     def __init__(self, num_joints=2):
         self.num_joints = num_joints
         self.shoulder_angle = 0
@@ -26,22 +27,27 @@ class RoboticArm:
         self.arm_lengths = [ARM_LENGTH_1, ARM_LENGTH_2, ARM_LENGTH_3]
         self.update_end_effector()
 
+    # Anzahl der Gelenke
     def set_num_joints(self, num_joints):
         self.num_joints = num_joints
         self.update_end_effector()
 
+    # Länge der Armteile
     def set_arm_length(self, index, length):
         self.arm_lengths[index] = length
         self.update_end_effector()
 
+    # berechnet den Endeffektor je nach Anzahl der Gelenke
     def move_to(self, target):
         dx, dy = target[0] - self.shoulder_pos[0], target[1] - self.shoulder_pos[1]
         distance = np.hypot(dx, dy)
 
+        # 1 Gelenk
         if self.num_joints == 1:
             self.shoulder_angle = np.arctan2(dy, dx)
             distance = min(distance, self.arm_lengths[0])
 
+        # 2 Gelenke
         elif self.num_joints == 2:
             distance = min(distance, self.arm_lengths[0] + self.arm_lengths[1])
             cos_angle2 = (distance ** 2 - self.arm_lengths[0] ** 2 - self.arm_lengths[1] ** 2) / (2 * self.arm_lengths[0] * self.arm_lengths[1])
@@ -49,7 +55,7 @@ class RoboticArm:
             self.elbow_angle = np.arccos(cos_angle2)
             self.shoulder_angle = np.arctan2(dy, dx) - np.arctan2(self.arm_lengths[1] * np.sin(self.elbow_angle),
                                                                   self.arm_lengths[0] + self.arm_lengths[1] * np.cos(self.elbow_angle))
-
+        # 3 Gelenke
         elif self.num_joints == 3:
             # Inverse Kinematik zur Berechnung der Gelenkwinkel
             dx, dy = target[0] - self.shoulder_pos[0], target[1] - self.shoulder_pos[1]
@@ -82,6 +88,7 @@ class RoboticArm:
 
         self.update_end_effector()
 
+    # Position des Endeffektors
     def update_end_effector(self):
         if self.num_joints == 1:
             self.elbow_pos = self.shoulder_pos + np.array([self.arm_lengths[0] * np.cos(self.shoulder_angle),
@@ -104,32 +111,33 @@ class GUI:
         self.canvas = tk.Canvas(master, width=SCREEN_WIDTH, height=SCREEN_HEIGHT, bg='white')
         self.canvas.pack()
 
-        # Initialize the robotic arm
+        # initialisiert den Roboterarm
         self.robotic_arm = RoboticArm()
         self.draw_robotic_arm()
 
-        # Initialize variables for drag-and-drop
+        # initialisiert dei Werte für Drag and Drop
         self.selected_piece = None
         self.dragging = False
 
-        # Event listeners for mouse events
+        # Eventlistener für die Maus
         self.canvas.bind("<ButtonPress-1>", self.on_press)
         self.canvas.bind("<B1-Motion>", self.on_drag)
         self.canvas.bind("<ButtonRelease-1>", self.on_release)
         self.canvas.bind("<Button-3>", self.on_right_click)
 
-        # Create puzzle pieces instead of red boxes
+        # erstellen der Puzzleteile
         self.create_grid()
         self.create_puzzle_pieces()
         self.create_legend()
 
-        # Configuration area at the top right
+        # erstellen des Menüs
         self.create_config_panel()
 
-        # Button to check positions
+        # Button zum Überprüfen der Puzzleteile
         self.check_button = tk.Button(master, text="Check Positions", command=self.check_positions)
         self.check_button.pack()
 
+    # Panel für das Menü
     def create_config_panel(self):
         config_frame = tk.Frame(self.master, bd=2, relief=tk.RIDGE)
         config_frame.place(x=SCREEN_WIDTH - 250, y=10, width=220, height=320)
@@ -158,9 +166,9 @@ class GUI:
         self.arm_length3_slider.set(ARM_LENGTH_3)
         self.arm_length3_slider.pack()
 
+    # updatet Anzahl der Gelenke
     def update_num_joints(self, value):
-        # Show or hide sliders and labels based on the number of joints
-        value = int(value)  # Ensure value is an integer
+        value = int(value)  
         if value >= 2:
             self.arm_length2_label.pack()
             self.arm_length2_slider.pack()
@@ -177,26 +185,30 @@ class GUI:
         self.robotic_arm.set_num_joints(int(value))
         self.draw_robotic_arm()
 
+    # aktualisiert den Roboterarm nach ändern des ersten Arms
     def update_arm_length1(self, value):
         self.robotic_arm.set_arm_length(0, int(value))
         self.draw_robotic_arm()
 
+    # aktualisiert den Roboterarm nach ändern des zweiten Arms
     def update_arm_length2(self, value):
         self.robotic_arm.set_arm_length(1, int(value))
         self.draw_robotic_arm()
 
+    # aktualisiert den Roboterarm nach ändern des dritten Arms
     def update_arm_length3(self, value):
         self.robotic_arm.set_arm_length(2, int(value))
         self.draw_robotic_arm()
 
+    # erstellt die Puzzleteile
     def create_puzzle_pieces(self):
         script_dir = os.path.dirname(os.path.abspath(__file__))
         image_path = os.path.join(script_dir, "math-puzzles-image.jpg")
         self.puzzle_image = Image.open(image_path)
         self.puzzle_image = self.puzzle_image.resize((2 * GRID_SIZE, 2 * GRID_SIZE), Image.Resampling.LANCZOS)
         self.puzzle_pieces = []
-        positions = [(0, 0), (0, 1), (1, 0), (1, 1)]
-        random.shuffle(positions)
+        positions = [(0, 0), (0, 1), (1, 0), (1, 1)] # 2x2 Grid
+        random.shuffle(positions) # zufällige Anordnung der Teile
         for i in range(2):
             for j in range(2):
                 box_image = self.puzzle_image.crop((j * GRID_SIZE, i * GRID_SIZE, (j + 1) * GRID_SIZE, (i + 1) * GRID_SIZE))
@@ -207,6 +219,7 @@ class GUI:
                 self.puzzle_pieces.append((piece, (i, j), box_image))
                 self.canvas.tag_raise(piece)
 
+    # erstellt Grid für das Puzzle
     def create_grid(self):
         offset_x = 600
         offset_y = SCREEN_HEIGHT / 2 - 100
@@ -218,16 +231,19 @@ class GUI:
                 square = self.canvas.create_rectangle(x0, y0, x1, y1, fill='white', outline='black', tags="grid")
                 self.grid_positions[square] = (i, j)
 
+    # Legende oben links
     def create_legend(self):
         legend_items = ["Mit der linken Maustaste den Greifarm an die gewünschte Position verschieben",
                         "Zum Aufnehmen eines Puzzleteils Rechtsklick verwenden"]
         for index, text in enumerate(legend_items):
             self.canvas.create_text(50, 30 + index * 20, text=text, anchor='w')
 
+    # Endeffektor auswählen
     def on_press(self, event):
         if self.is_near_end_effector(event.x, event.y):
             self.dragging = True
 
+    # Arm bewegen
     def on_drag(self, event):
         if self.dragging:
             target = np.array([event.x, event.y])
@@ -238,9 +254,11 @@ class GUI:
                 ex, ey = self.robotic_arm.end_effector_pos
                 self.canvas.coords(piece, ex, ey)
 
+    # Arm loslassen
     def on_release(self, event):
         self.dragging = False
 
+    # Puzzleteil wenn möglich aufheben
     def on_right_click(self, event):
         if self.selected_piece:
             piece, pos, box_image = self.selected_piece
@@ -260,10 +278,12 @@ class GUI:
                     ex, ey = self.robotic_arm.end_effector_pos
                     self.canvas.coords(piece, ex, ey)
 
+    # definiert Feld in dem der Endeffektor ausgewählt weredn kann
     def is_near_end_effector(self, x, y):
         ex, ey = self.robotic_arm.end_effector_pos
         return np.hypot(ex - x, ey - y) < 10
 
+    # Arm zeichnen
     def draw_robotic_arm(self):
         self.canvas.delete("arm")
         self.shoulder_pos = self.robotic_arm.shoulder_pos
@@ -294,6 +314,7 @@ class GUI:
 
         self.canvas.create_oval(self.robotic_arm.end_effector_pos[0] - 5, self.robotic_arm.end_effector_pos[1] - 5, self.robotic_arm.end_effector_pos[0] + 5, self.robotic_arm.end_effector_pos[1] + 5, fill='blue', tags="arm")
 
+    # überprüft ob die Puzzleteile richtig liegen
     def check_positions(self):
         correct_positions = 0
         for piece, pos, box_image in self.puzzle_pieces:
@@ -308,6 +329,7 @@ class GUI:
         else:
             print(f"{correct_positions} von 4 Kästen sind korrekt platziert.")
 
+    # guckt ob das Puzzleteil im Grid liegt
     def is_inside(self, square_coords, piece_coords):
         tolerance = 3
         piece_x0 = piece_coords[0] - BOX_SIZE / 2
