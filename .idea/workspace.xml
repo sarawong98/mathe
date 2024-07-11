@@ -1,0 +1,181 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="4860f8ad-b64b-4e54-b23d-c10db0ba5a63" name="Changes" comment="make puzzle pieces draggable">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Python Script" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="lara" />
+      </map>
+    </option>
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="ProjectColorInfo">{
+  &quot;customColor&quot;: &quot;&quot;,
+  &quot;associatedIndex&quot;: 7
+}</component>
+  <component name="ProjectId" id="2iEn17LDx1wy5gqm1btrJMkuHVD" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Python.2D_Raum_Puzzle.executor&quot;: &quot;Run&quot;,
+    &quot;Python.3D-Greifarm.executor&quot;: &quot;Run&quot;,
+    &quot;Python.3D_Raum_Roboterarm.executor&quot;: &quot;Run&quot;,
+    &quot;Python.3D_Test.executor&quot;: &quot;Run&quot;,
+    &quot;Python.Idee1_Maja.executor&quot;: &quot;Run&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;Sara&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/sari3/PycharmProjects/mathe&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  },
+  &quot;keyToStringList&quot;: {
+    &quot;com.intellij.ide.scratch.ScratchImplUtil$2/New Scratch File&quot;: [
+      &quot;Python&quot;,
+      &quot;PLAIN_TEXT&quot;
+    ]
+  }
+}</component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\sari3\PycharmProjects\mathe" />
+    </key>
+  </component>
+  <component name="SharedIndexes">
+    <attachedChunks>
+      <set>
+        <option value="bundled-js-predefined-1d06a55b98c1-74d2a5396914-JavaScript-PY-241.14494.241" />
+        <option value="bundled-python-sdk-0509580d9d50-28c9f5db9ffe-com.jetbrains.pycharm.pro.sharedIndexes.bundled-PY-241.14494.241" />
+      </set>
+    </attachedChunks>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="4860f8ad-b64b-4e54-b23d-c10db0ba5a63" name="Changes" comment="" />
+      <created>1719064388921</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1719064388921</updated>
+      <workItem from="1719064391137" duration="247000" />
+      <workItem from="1719083430329" duration="8633000" />
+      <workItem from="1719229591881" duration="5036000" />
+      <workItem from="1719303495118" duration="11059000" />
+      <workItem from="1719323353232" duration="1047000" />
+      <workItem from="1719394464529" duration="3389000" />
+      <workItem from="1720619772377" duration="5398000" />
+      <workItem from="1720629349180" duration="10369000" />
+    </task>
+    <task id="LOCAL-00001" summary="initial Commit">
+      <option name="closed" value="true" />
+      <created>1719232432379</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1719232432379</updated>
+    </task>
+    <task id="LOCAL-00002" summary="add Version with Puzzle like Game">
+      <option name="closed" value="true" />
+      <created>1719232462592</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1719232462592</updated>
+    </task>
+    <task id="LOCAL-00003" summary="add randomisation and feedback for placing">
+      <option name="closed" value="true" />
+      <created>1719258918734</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1719258918734</updated>
+    </task>
+    <task id="LOCAL-00004" summary="add legend">
+      <option name="closed" value="true" />
+      <created>1719310173797</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1719310173797</updated>
+    </task>
+    <task id="LOCAL-00005" summary="add tolerance and snap to grid">
+      <option name="closed" value="true" />
+      <created>1719318460557</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1719318460557</updated>
+    </task>
+    <task id="LOCAL-00006" summary="rename file">
+      <option name="closed" value="true" />
+      <created>1719396334417</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1719396334417</updated>
+    </task>
+    <task id="LOCAL-00007" summary="load image and generate puzzle pieces">
+      <option name="closed" value="true" />
+      <created>1720635831153</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1720635831153</updated>
+    </task>
+    <task id="LOCAL-00008" summary="make puzzle pieces draggable">
+      <option name="closed" value="true" />
+      <created>1720641642882</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1720641642882</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="initial Commit" />
+    <MESSAGE value="add Version with Puzzle like Game" />
+    <MESSAGE value="add randomisation and feedback for placing" />
+    <MESSAGE value="add legend" />
+    <MESSAGE value="add tolerance and snap to grid" />
+    <MESSAGE value="rename file" />
+    <MESSAGE value="load image and generate puzzle pieces" />
+    <MESSAGE value="make puzzle pieces draggable" />
+    <option name="LAST_COMMIT_MESSAGE" value="make puzzle pieces draggable" />
+  </component>
+  <component name="com.intellij.coverage.CoverageDataManagerImpl">
+    <SUITE FILE_PATH="coverage/mathe$3D_Greifarm.coverage" NAME="3D-Greifarm Coverage Results" MODIFIED="1719399957341" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/mathe$3D_Test.coverage" NAME="3D_Test Coverage Results" MODIFIED="1719324096648" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/mathe$Idee1_Maja.coverage" NAME="Idee1_Maja Coverage Results" MODIFIED="1719400248932" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/mathe$3D_Raum_Roboterarm.coverage" NAME="3D_Raum_Roboterarm Coverage Results" MODIFIED="1719084528143" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/mathe$2D_Raum_Puzzle.coverage" NAME="2D_Raum_Puzzle Coverage Results" MODIFIED="1719324106729" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+  </component>
+</project>
