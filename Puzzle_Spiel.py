@@ -79,7 +79,7 @@ class RoboticArm:
             self.shoulder_angle = angle1
             self.elbow_angle = angle2
             self.wrist_angle = wrist_angle2
-     
+
         self.update_end_effector()
 
     def update_end_effector(self):
@@ -132,7 +132,7 @@ class GUI:
 
     def create_config_panel(self):
         config_frame = tk.Frame(self.master, bd=2, relief=tk.RIDGE)
-        config_frame.place(x=SCREEN_WIDTH - 250, y=10, width=240, height=300)
+        config_frame.place(x=SCREEN_WIDTH - 250, y=10, width=220, height=320)
 
         tk.Label(config_frame, text="Konfiguration").pack(pady=10)
         tk.Label(config_frame, text="Anzahl der Gelenke:").pack()
@@ -146,17 +146,34 @@ class GUI:
         self.arm_length1_slider.set(ARM_LENGTH_1)
         self.arm_length1_slider.pack()
 
-        tk.Label(config_frame, text="Armlänge 2:").pack()
+        self.arm_length2_label = tk.Label(config_frame, text="Armlänge 2:")
+        self.arm_length2_label.pack()
         self.arm_length2_slider = tk.Scale(config_frame, from_=50, to_=300, orient=tk.HORIZONTAL, command=self.update_arm_length2)
         self.arm_length2_slider.set(ARM_LENGTH_2)
         self.arm_length2_slider.pack()
 
-        tk.Label(config_frame, text="Armlänge 3:").pack()
+        self.arm_length3_label = tk.Label(config_frame, text="Armlänge 3:")
+        self.arm_length3_label.pack()
         self.arm_length3_slider = tk.Scale(config_frame, from_=50, to_=300, orient=tk.HORIZONTAL, command=self.update_arm_length3)
         self.arm_length3_slider.set(ARM_LENGTH_3)
         self.arm_length3_slider.pack()
 
     def update_num_joints(self, value):
+        # Show or hide sliders and labels based on the number of joints
+        value = int(value)  # Ensure value is an integer
+        if value >= 2:
+            self.arm_length2_label.pack()
+            self.arm_length2_slider.pack()
+        else:
+            self.arm_length2_label.pack_forget()
+            self.arm_length2_slider.pack_forget()
+        if value == 3:
+            self.arm_length3_label.pack()
+            self.arm_length3_slider.pack()
+        else:
+            self.arm_length3_label.pack_forget()
+            self.arm_length3_slider.pack_forget()
+
         self.robotic_arm.set_num_joints(int(value))
         self.draw_robotic_arm()
 
@@ -259,23 +276,23 @@ class GUI:
                                                                self.robotic_arm.arm_lengths[1] * np.sin(self.robotic_arm.shoulder_angle + self.robotic_arm.elbow_angle)])
         elif self.robotic_arm.num_joints == 3:
             # Zeichnet den Roboterarm auf der Leinwand
-            
+
             self.wrist_pos = self.elbow_pos + np.array([self.robotic_arm.arm_lengths[1] * np.cos(self.robotic_arm.shoulder_angle + self.robotic_arm.elbow_angle),
                                                         self.robotic_arm.arm_lengths[1] * np.sin(self.robotic_arm.shoulder_angle + self.robotic_arm.elbow_angle)])
             self.end_effector_pos = self.wrist_pos + np.array([self.robotic_arm.arm_lengths[2] * np.cos(self.robotic_arm.shoulder_angle + self.robotic_arm.elbow_angle + self.robotic_arm.wrist_angle),
                                                                self.robotic_arm.arm_lengths[2] * np.sin(self.robotic_arm.shoulder_angle + self.robotic_arm.elbow_angle + self.robotic_arm.wrist_angle)])
 
         # Zeichnen des ersten Arms
-        self.canvas.create_line(self.shoulder_pos[0], self.shoulder_pos[1], self.elbow_pos[0], self.elbow_pos[1], width=5, fill='blue', tags="arm")
+        self.canvas.create_line(self.robotic_arm.shoulder_pos[0], self.robotic_arm.shoulder_pos[1], self.robotic_arm.elbow_pos[0], self.robotic_arm.elbow_pos[1], width=5, fill='blue', tags="arm")
         if self.robotic_arm.num_joints == 2:
-            self.canvas.create_line(self.elbow_pos[0], self.elbow_pos[1], self.end_effector_pos[0], self.end_effector_pos[1], width=5, fill='blue', tags="arm")
+            self.canvas.create_line(self.robotic_arm.elbow_pos[0], self.robotic_arm.elbow_pos[1], self.robotic_arm.end_effector_pos[0], self.robotic_arm.end_effector_pos[1], width=5, fill='blue', tags="arm")
         if self.robotic_arm.num_joints == 3:
             # Zeichnen des zweiten Arms
-            self.canvas.create_line(self.elbow_pos[0], self.elbow_pos[1], self.wrist_pos[0], self.wrist_pos[1], width=5, fill='blue', tags="arm")
+            self.canvas.create_line(self.robotic_arm.elbow_pos[0], self.robotic_arm.elbow_pos[1], self.robotic_arm.wrist_pos[0], self.robotic_arm.wrist_pos[1], width=5, fill='blue', tags="arm")
             # Zeichnen des dritten Arms
-            self.canvas.create_line(self.wrist_pos[0], self.wrist_pos[1], self.end_effector_pos[0], self.end_effector_pos[1], width=5, fill='blue', tags="arm")
+            self.canvas.create_line(self.robotic_arm.wrist_pos[0], self.robotic_arm.wrist_pos[1], self.robotic_arm.end_effector_pos[0], self.robotic_arm.end_effector_pos[1], width=5, fill='blue', tags="arm")
 
-        self.canvas.create_oval(self.end_effector_pos[0] - 5, self.end_effector_pos[1] - 5, self.end_effector_pos[0] + 5, self.end_effector_pos[1] + 5, fill='blue', tags="arm")
+        self.canvas.create_oval(self.robotic_arm.end_effector_pos[0] - 5, self.robotic_arm.end_effector_pos[1] - 5, self.robotic_arm.end_effector_pos[0] + 5, self.robotic_arm.end_effector_pos[1] + 5, fill='blue', tags="arm")
 
     def check_positions(self):
         correct_positions = 0
