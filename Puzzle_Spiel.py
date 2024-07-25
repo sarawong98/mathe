@@ -3,6 +3,7 @@ from PIL import Image, ImageTk
 import numpy as np
 import random
 import os
+from scipy.optimize import least_squares
 
 # Konstanten für die Bildschirmgröße und den Roboterarm
 SCREEN_WIDTH, SCREEN_HEIGHT = 1200, 600
@@ -14,79 +15,122 @@ GRID_SIZE = 50
 class RoboticArm:
     # initialisiert den Roboter Arm mit Startwerten
     def __init__(self, num_joints=2):
+
+        #Anzahl der Gelenke
         self.num_joints = num_joints
+
+        #Winkel vom Roboterarm
         self.shoulder_angle = 0
         self.elbow_angle = 0
         self.wrist_angle = 0
-        self.angle1_new = 0
 
-        self.wrist_pos = 0
+        #Positionen vom Roboterarm
+        self.shoulder_pos = np.array([400, SCREEN_HEIGHT / 2]) #ist ja fest woher der Roboterarm startet
         self.elbow_pos = 0
-        self.shoulder_pos = np.array([400, SCREEN_HEIGHT / 2])
+        self.wrist_pos = 0
 
+        #Hilfsvariabeln für 3 Gelenke
+        self.initial_guess = [0, 0, 0]
+        self.result = [0, 0, 0]
+
+        #Abstand zu Zielposition
+        self.dx = 0
+        self.dy = 0
+        
+        #armlängen
         self.arm_lengths = [ARM_LENGTH_1, ARM_LENGTH_2, ARM_LENGTH_3]
+
+        #Endeffektor berechnen
         self.update_end_effector()
 
-    # Anzahl der Gelenke
+    # Setter für Anzahl der Gelenke
     def set_num_joints(self, num_joints):
         self.num_joints = num_joints
         self.update_end_effector()
 
-    # Länge der Armteile
+    # Setter für Länge der Armteile
     def set_arm_length(self, index, length):
         self.arm_lengths[index] = length
         self.update_end_effector()
 
-    # berechnet den Endeffektor je nach Anzahl der Gelenke
+    # berechnet Winkel für alle Roboterarme
     def move_to(self, target):
-        dx, dy = target[0] - self.shoulder_pos[0], target[1] - self.shoulder_pos[1]
-        distance = np.hypot(dx, dy)
+        #berechnet distanz von der Schulterposition zur Zielposition
+        self.dx, self.dy = target[0] - self.shoulder_pos[0], target[1] - self.shoulder_pos[1]
+        distance = np.hypot(self.dx, self.dy) # x**2 + y**2 = distance**2
 
-        # 1 Gelenk
+        # Fall: 1 Gelenk
         if self.num_joints == 1:
-            self.shoulder_angle = np.arctan2(dy, dx)
-            distance = min(distance, self.arm_lengths[0])
 
-        # 2 Gelenke
+            # distance kann nur so groß sein wie armlänge
+            distance = min(distance, self.arm_lengths[0]) 
+
+            # braucht ja nur einen Winkel:
+            self.shoulder_angle = np.arctan2(self.dy, self.dx) # winkel = tan**-1(x/y)
+
+
+        # Fall: 2 Gelenke
         elif self.num_joints == 2:
-            distance = min(distance, self.arm_lengths[0] + self.arm_lengths[1])
+
+            # distance kann nur so groß sein wie armlängen zsm
+            distance = min(distance, self.arm_lengths[0] + self.arm_lengths[1]) 
+
+            #Kosinussatz c**2 = a**2 + b**2 - 2ab*cos(winkel)
             cos_angle2 = (distance ** 2 - self.arm_lengths[0] ** 2 - self.arm_lengths[1] ** 2) / (2 * self.arm_lengths[0] * self.arm_lengths[1])
             cos_angle2 = np.clip(cos_angle2, -1, 1)
             self.elbow_angle = np.arccos(cos_angle2)
-            self.shoulder_angle = np.arctan2(dy, dx) - np.arctan2(self.arm_lengths[1] * np.sin(self.elbow_angle),
-                                                                  self.arm_lengths[0] + self.arm_lengths[1] * np.cos(self.elbow_angle))
-        # 3 Gelenke
+
+            #berechnen schulterwinkel
+            self.shoulder_angle = np.arctan2(self.dy, self.dx) - np.arctan2(self.arm_lengths[1] * np.sin(self.elbow_angle),
+                                                                            self.arm_lengths[0] + self.arm_lengths[1] * np.cos(self.elbow_angle))
+         
+        # Fall: 3 Gelenke
+
+        #Variante 1
+#        elif self.num_joints == 3:
+#            # Begrenzung der maximalen Reichweite des Arms
+#            if distance > sum(self.arm_lengths):
+#                distance = sum(self.arm_lengths)
+#                target = self.shoulder_pos + distance * np.array([self.dx, self.dy]) / distance
+#
+#            # Berechnung der Winkel für die einzelnen Segmente
+#            cos_angle2 = (distance**2 - self.arm_lengths[0]**2 - self.arm_lengths[1]**2) / (2 * self.arm_lengths[0] * self.arm_lengths[1])
+#            cos_angle2 = np.clip(cos_angle2, -1.0, 1.0)
+#            self.elbow_angle = np.arccos(cos_angle2)
+#
+#            k1 = self.arm_lengths[0] + self.arm_lengths[1] * cos_angle2
+#            k2 = self.arm_lengths[1] * np.sin(self.elbow_angle)
+#            self.shoulder_angle = np.arctan2(self.dy, self.dx) - np.arctan2(k2, k1)
+#
+#            # Berechnung des Handgelenkwinkels
+#            wrist_target = target - np.array([self.arm_lengths[2] * np.cos(self.shoulder_angle + self.elbow_angle), self.arm_lengths[2] * np.sin(self.shoulder_angle + self.elbow_angle)])
+#            wrist_dx, wrist_dy = wrist_target[0] - self.shoulder_pos[0], wrist_target[1] - self.shoulder_pos[1]
+#            wrist_angle1 = np.arctan2(wrist_dy, wrist_dx)
+#            self.wrist_angle = self.shoulder_angle + self.elbow_angle - wrist_angle1
+
+        #Variante 2
         elif self.num_joints == 3:
-            # Inverse Kinematik zur Berechnung der Gelenkwinkel
-            dx, dy = target[0] - self.shoulder_pos[0], target[1] - self.shoulder_pos[1]
-            distance = np.hypot(dx, dy)
 
-            # Begrenzung der maximalen Reichweite des Arms
-            if distance > sum(self.arm_lengths):
-                distance = sum(self.arm_lengths)
-                target = self.shoulder_pos + distance * np.array([dx, dy]) / distance
+            self.initial_guess = [self.shoulder_angle, self.elbow_angle, self.wrist_angle]
+            
+            self.result = least_squares(self.equations, self.initial_guess)
 
-            # Berechnung der Winkel für die einzelnen Segmente
-            cos_angle2 = (distance**2 - self.arm_lengths[0]**2 - self.arm_lengths[1]**2) / (2 * self.arm_lengths[0] * self.arm_lengths[1])
-            cos_angle2 = np.clip(cos_angle2, -1.0, 1.0)
-            angle2 = np.arccos(cos_angle2)
-
-            k1 = self.arm_lengths[0] + self.arm_lengths[1] * cos_angle2
-            k2 = self.arm_lengths[1] * np.sin(angle2)
-            angle1 = np.arctan2(dy, dx) - np.arctan2(k2, k1)
-
-            # Berechnung des Handgelenkwinkels
-            wrist_target = target - np.array([self.arm_lengths[2] * np.cos(angle1 + angle2), self.arm_lengths[2] * np.sin(angle1 + angle2)])
-            wrist_dx, wrist_dy = wrist_target[0] - self.shoulder_pos[0], wrist_target[1] - self.shoulder_pos[1]
-            wrist_angle1 = np.arctan2(wrist_dy, wrist_dx)
-            wrist_angle2 = angle1 + angle2 - wrist_angle1
-
-            # Aktualisierung der Gelenkwinkel
-            self.shoulder_angle = angle1
-            self.elbow_angle = angle2
-            self.wrist_angle = wrist_angle2
+            self.shoulder_angle, self.elbow_angle, self.wrist_angle = self.result.x
+ 
+ 
 
         self.update_end_effector()
+
+    def equations(self, angles):
+        alpha, beta, gamma = angles
+        # Kumulierte Winkel
+        total_alpha = alpha
+        total_beta = alpha + beta
+        total_gamma = alpha + beta + gamma
+        return [
+            self.arm_lengths[0] * np.cos(total_alpha) + self.arm_lengths[1] * np.cos(total_beta) + self.arm_lengths[2] * np.cos(total_gamma) - self.dx,
+            self.arm_lengths[0] * np.sin(total_alpha) + self.arm_lengths[1] * np.sin(total_beta) + self.arm_lengths[2] * np.sin(total_gamma) - self.dy
+        ]
 
     # Position des Endeffektors
     def update_end_effector(self):
@@ -100,9 +144,12 @@ class RoboticArm:
             self.end_effector_pos = self.elbow_pos + np.array([self.arm_lengths[1] * np.cos(self.shoulder_angle + self.elbow_angle),
                                                                self.arm_lengths[1] * np.sin(self.shoulder_angle + self.elbow_angle)])
         elif self.num_joints == 3:
-            self.elbow_pos = self.shoulder_pos + np.array([self.arm_lengths[0] * np.cos(self.shoulder_angle), self.arm_lengths[0] * np.sin(self.shoulder_angle)])
-            self.wrist_pos = self.elbow_pos + np.array([self.arm_lengths[1] * np.cos(self.shoulder_angle + self.elbow_angle), self.arm_lengths[1] * np.sin(self.shoulder_angle + self.elbow_angle)])
-            self.end_effector_pos = self.wrist_pos + np.array([self.arm_lengths[2] * np.cos(self.shoulder_angle + self.elbow_angle + self.wrist_angle), self.arm_lengths[2] * np.sin(self.shoulder_angle + self.elbow_angle + self.wrist_angle)])
+            self.elbow_pos = self.shoulder_pos + np.array([self.arm_lengths[0] * np.cos(self.shoulder_angle),
+                                                           self.arm_lengths[0] * np.sin(self.shoulder_angle)])
+            self.wrist_pos = self.elbow_pos + np.array([self.arm_lengths[1] * np.cos(self.shoulder_angle + self.elbow_angle),
+                                                        self.arm_lengths[1] * np.sin(self.shoulder_angle + self.elbow_angle)])
+            self.end_effector_pos = self.wrist_pos + np.array([self.arm_lengths[2] * np.cos(self.shoulder_angle + self.elbow_angle + self.wrist_angle),
+                                                               self.arm_lengths[2] * np.sin(self.shoulder_angle + self.elbow_angle + self.wrist_angle)])
 
 # Klasse für die GUI
 class GUI:

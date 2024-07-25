@@ -5,10 +5,17 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="4860f8ad-b64b-4e54-b23d-c10db0ba5a63" name="Changes" comment="make puzzle pieces draggable">
-      <change afterPath="$PROJECT_DIR$/.idea/mathe.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/profiles_settings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/profiles_settings.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/documents/technischer_bericht.tex" beforeDir="false" afterPath="$PROJECT_DIR$/documents/technischer_bericht.tex" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/2D_Puzzle_Image.py" beforeDir="false" afterPath="$PROJECT_DIR$/2D_Puzzle_Image.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/2D_Raum_Puzzle.py" beforeDir="false" afterPath="$PROJECT_DIR$/2D_Raum_Puzzle.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/2D_aktuell.py" beforeDir="false" afterPath="$PROJECT_DIR$/2D_aktuell.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/2D_puzzle_Sara.py" beforeDir="false" afterPath="$PROJECT_DIR$/2D_puzzle_Sara.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/3D-Greifarm.py" beforeDir="false" afterPath="$PROJECT_DIR$/3D-Greifarm.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Idee_3D_Maja.py" beforeDir="false" afterPath="$PROJECT_DIR$/Idee_3D_Maja.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -30,18 +37,6 @@
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
-  <component name="GitHubPullRequestSearchHistory">{
-  &quot;lastFilter&quot;: {
-    &quot;state&quot;: &quot;OPEN&quot;,
-    &quot;assignee&quot;: &quot;nikias6&quot;
-  }
-}</component>
-  <component name="GithubPullRequestsUISettings">{
-  &quot;selectedUrlAndAccountId&quot;: {
-    &quot;url&quot;: &quot;https://github.com/sarawong98/mathe.git&quot;,
-    &quot;accountId&quot;: &quot;e5e680f7-4523-483e-a465-7c1f8ddf1563&quot;
-  }
-}</component>
   <component name="ProjectColorInfo">{
   &quot;customColor&quot;: &quot;&quot;,
   &quot;associatedIndex&quot;: 7
@@ -53,25 +48,20 @@
   </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
-    "LaTeX.exposee.executor": "Run",
-    "LaTeX.technischer_bericht.executor": "Run",
     "Python.2D_Raum_Puzzle.executor": "Run",
     "Python.3D-Greifarm.executor": "Run",
     "Python.3D_Raum_Roboterarm.executor": "Run",
     "Python.3D_Test.executor": "Run",
     "Python.Idee1_Maja.executor": "Run",
     "RunOnceActivity.ShowReadmeOnStart": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "git-widget-placeholder": "main",
-    "ignore.virus.scanning.warn.message": "true",
+    "git-widget-placeholder": "lara",
     "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "C:/Users/ScharnkeNikias/OneDrive - RealCore Group GmbH/Dokumente/Mathe/mathe",
+    "last_opened_file_path": "C:/Users/sari3/PycharmProjects/mathe",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
     "node.js.selected.package.tslint": "(autodetect)",
     "nodejs_package_manager_path": "npm",
-    "settings.editor.selected.configurable": "preferences.updates",
     "vue.rearranger.settings.migration": "true"
   },
   "keyToStringList": {
@@ -86,63 +76,11 @@
       <recent name="C:\Users\sari3\PycharmProjects\mathe" />
     </key>
   </component>
-  <component name="RunManager" selected="LaTeX.technischer_bericht">
-    <configuration name="exposee" type="LATEX_RUN_CONFIGURATION" factoryName="LaTeX configuration factory" temporary="true">
-      <texify>
-        <compiler>PDFLATEX</compiler>
-        <compiler-path />
-        <sumatra-path />
-        <pdf-viewer>SUMATRA</pdf-viewer>
-        <viewer-command />
-        <compiler-arguments />
-        <envs />
-        <before-run-command />
-        <main-file>$PROJECT_DIR$/documents/exposee.tex</main-file>
-        <output-path>$PROJECT_DIR$/out</output-path>
-        <auxil-path>$PROJECT_DIR$/auxil</auxil-path>
-        <compile-twice>false</compile-twice>
-        <output-format>PDF</output-format>
-        <latex-distribution>MIKTEX</latex-distribution>
-        <has-been-run>true</has-been-run>
-        <bib-run-config>[]</bib-run-config>
-        <makeindex-run-config>[]</makeindex-run-config>
-      </texify>
-      <method v="2" />
-    </configuration>
-    <configuration name="technischer_bericht" type="LATEX_RUN_CONFIGURATION" factoryName="LaTeX configuration factory" temporary="true">
-      <texify>
-        <compiler>PDFLATEX</compiler>
-        <compiler-path />
-        <sumatra-path />
-        <pdf-viewer>SUMATRA</pdf-viewer>
-        <viewer-command />
-        <compiler-arguments />
-        <envs />
-        <before-run-command />
-        <main-file>$PROJECT_DIR$/documents/technischer_bericht.tex</main-file>
-        <output-path>$PROJECT_DIR$/out</output-path>
-        <auxil-path>$PROJECT_DIR$/auxil</auxil-path>
-        <compile-twice>false</compile-twice>
-        <output-format>PDF</output-format>
-        <latex-distribution>MIKTEX</latex-distribution>
-        <has-been-run>true</has-been-run>
-        <bib-run-config>[]</bib-run-config>
-        <makeindex-run-config>[]</makeindex-run-config>
-      </texify>
-      <method v="2" />
-    </configuration>
-    <recent_temporary>
-      <list>
-        <item itemvalue="LaTeX.technischer_bericht" />
-        <item itemvalue="LaTeX.exposee" />
-      </list>
-    </recent_temporary>
-  </component>
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
-        <option value="bundled-jdk-9f38398b9061-39b83d9b5494-intellij.indexing.shared.core-IU-241.18034.62" />
-        <option value="bundled-js-predefined-1d06a55b98c1-0b3e54e931b4-JavaScript-IU-241.18034.62" />
+        <option value="bundled-jdk-9f38398b9061-18abd8497189-intellij.indexing.shared.core-IU-241.14494.240" />
+        <option value="bundled-js-predefined-1d06a55b98c1-74d2a5396914-JavaScript-IU-241.14494.240" />
       </set>
     </attachedChunks>
   </component>
@@ -163,12 +101,6 @@
       <workItem from="1720619772377" duration="5398000" />
       <workItem from="1720629349180" duration="10369000" />
       <workItem from="1720708573578" duration="504000" />
-      <workItem from="1721835971325" duration="929000" />
-      <workItem from="1721837264481" duration="91000" />
-      <workItem from="1721837400353" duration="161000" />
-      <workItem from="1721837881577" duration="137000" />
-      <workItem from="1721891004772" duration="538000" />
-      <workItem from="1721891722044" duration="8075000" />
     </task>
     <task id="LOCAL-00001" summary="initial Commit">
       <option name="closed" value="true" />
