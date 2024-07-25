@@ -8,14 +8,14 @@
 \contentsline {subsection}{\numberline {7.1}Gegenstand der Entwicklung}{7}{}%
 \contentsline {subsection}{\numberline {7.2}Roboterarm}{7}{}%
 \contentsline {subsubsection}{\numberline {7.2.1}Initialisierung}{7}{}%
-\contentsline {subsubsection}{\numberline {7.2.2}Berechnung Winkel}{7}{}%
-\contentsline {subsection}{\numberline {7.3}GUI-Klasse}{15}{}%
-\contentsline {subsubsection}{\numberline {7.3.1}Konfigurationspanel}{15}{}%
-\contentsline {subsubsection}{\numberline {7.3.2}Puzzleteile und Grid (Zielfläche)}{16}{}%
-\contentsline {subsubsection}{\numberline {7.3.3}Puzzleteile bewegen}{16}{}%
+\contentsline {subsubsection}{\numberline {7.2.2}Berechnung Winkel}{8}{}%
+\contentsline {subsection}{\numberline {7.3}GUI-Klasse}{16}{}%
+\contentsline {subsubsection}{\numberline {7.3.1}Konfigurationspanel}{16}{}%
+\contentsline {subsubsection}{\numberline {7.3.2}Puzzleteile und Grid (Zielfläche)}{17}{}%
+\contentsline {subsubsection}{\numberline {7.3.3}Puzzleteile bewegen}{17}{}%
 \contentsline {subsubsection}{\numberline {7.3.4}Puzzleteile aufnehmen und ablegen}{17}{}%
-\contentsline {subsubsection}{\numberline {7.3.5}Überprüfung der Position}{17}{}%
-\contentsline {subsection}{\numberline {7.4}Kollisionserkennung}{17}{}%
-\contentsline {subsubsection}{\numberline {7.4.1}Kollisionserkennung beim Drag \& Drop von Puzzleteilen}{17}{}%
-\contentsline {subsubsection}{\numberline {7.4.2}Kollisionserkennung bei der Positionierung des Endeffektors}{18}{}%
-\contentsline {subsubsection}{\numberline {7.4.3}Kollisionserkennung während der Armbewegung}{18}{}%
+\contentsline {subsubsection}{\numberline {7.3.5}Überprüfung der Position}{18}{}%
+\contentsline {subsection}{\numberline {7.4}Kollisionserkennung}{18}{}%
+\contentsline {subsubsection}{\numberline {7.4.1}Kollisionserkennung beim Drag \& Drop von Puzzleteilen}{18}{}%
+\contentsline {subsubsection}{\numberline {7.4.2}Kollisionserkennung bei der Positionierung des Endeffektors}{19}{}%
+\contentsline {subsubsection}{\numberline {7.4.3}Kollisionserkennung während der Armbewegung}{19}{}%
