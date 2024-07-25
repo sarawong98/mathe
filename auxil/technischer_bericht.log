@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (MiKTeX 24.1) (preloaded format=pdflatex 2024.7.24)  25 JUL 2024 11:35
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (MiKTeX 24.1) (preloaded format=pdflatex 2024.7.24)  25 JUL 2024 14:55
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -236,21 +236,31 @@ Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 4
 (C:\Users\ScharnkeNikias\AppData\Local\Programs\MiKTeX\tex/latex/00miktex\epsto
 pdf-sys.cfg
 File: epstopdf-sys.cfg 2021/03/18 v2.0 Configuration of epstopdf for MiKTeX
-))
-Overfull \hbox (17.81245pt too wide) in paragraph at lines 58--64
+)) [1
+
+{C:/Users/ScharnkeNikias/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map}]
+(C:/Users\ScharnkeNikias\OneDrive - RealCore Group GmbH\Dokumente\Mathe\mathe\a
+uxil\technischer_bericht.toc)
+\tf@toc=\write3
+\openout3 = `technischer_bericht.toc'.
+
+ [2
+
+]
+Overfull \hbox (17.81245pt too wide) in paragraph at lines 62--68
 \OT1/cmr/m/n/12 Roboterarmsimulationen sind ein wesentlicher Be-standteil der R
 obotik-forschung.
  []
 
 
-technischer_bericht.tex:67: LaTeX Error: Command \quotedblbase unavailable in e
+technischer_bericht.tex:71: LaTeX Error: Command \quotedblbase unavailable in e
 ncoding OT1.
 
 See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.67         Die Bachelorarbeit zur „
+l.71         Die Bachelorarbeit zur „
                                        Steuerung eines 5-DOF Handhabungsrobo...
 
 Your command was ignored.
@@ -258,14 +268,14 @@ Type  I <command> <return>  to replace it with another command,
 or  <return>  to continue without it.
 
 
-technischer_bericht.tex:69: LaTeX Error: Command \quotedblbase unavailable in e
+technischer_bericht.tex:73: LaTeX Error: Command \quotedblbase unavailable in e
 ncoding OT1.
 
 See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.69 ...htige Quelle war die Veröffentlichung „
+l.73 ...htige Quelle war die Veröffentlichung „
                                                   Tactile Robotic Assembly�...
 
 Your command was ignored.
@@ -273,14 +283,14 @@ Type  I <command> <return>  to replace it with another command,
 or  <return>  to continue without it.
 
 
-technischer_bericht.tex:72: LaTeX Error: Command \quotedblbase unavailable in e
+technischer_bericht.tex:76: LaTeX Error: Command \quotedblbase unavailable in e
 ncoding OT1.
 
 See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.72 ...nzend haben wir uns auch an der Arbeit „
+l.76 ...nzend haben wir uns auch an der Arbeit „
                                                   Robot Arm Control using Ma...
 
 Your command was ignored.
@@ -288,14 +298,14 @@ Type  I <command> <return>  to replace it with another command,
 or  <return>  to continue without it.
 
 
-technischer_bericht.tex:74: LaTeX Error: Command \quotedblbase unavailable in e
+technischer_bericht.tex:78: LaTeX Error: Command \quotedblbase unavailable in e
 ncoding OT1.
 
 See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.74 ...uns an der neuesten Auflage des Werkes „
+l.78 ...uns an der neuesten Auflage des Werkes „
                                                   Computer Animation: Algori...
 
 Your command was ignored.
@@ -303,22 +313,19 @@ Type  I <command> <return>  to replace it with another command,
 or  <return>  to continue without it.
 
 
-Overfull \hbox (13.92221pt too wide) in paragraph at lines 66--78
+Overfull \hbox (13.92221pt too wide) in paragraph at lines 70--82
 \OT1/cmr/m/n/12 Hand-habungsrobot-ers in Ar-beit-sraumko-or-di-naten\[1] von Ju
 -lia Dub-cova erkl^^?art
  []
 
 
-Overfull \hbox (24.45775pt too wide) in paragraph at lines 66--78
+Overfull \hbox (24.45775pt too wide) in paragraph at lines 70--82
 \OT1/cmr/m/n/12 un-seren Roboter-arm nutzen. Eine weit-ere wichtige Quelle war 
 die Ver^^?offentlichung
  []
 
-[1
-
-{C:/Users/ScharnkeNikias/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map}]
-technischer_bericht.tex:81: Misplaced alignment tab character &.
-l.81         muss. Der Greifarm wird durch Drag &
+technischer_bericht.tex:85: Misplaced alignment tab character &.
+l.85         muss. Der Greifarm wird durch Drag &
                                                   Drop interaktiv gesteuert ...
 I can't figure out why you would want to use a tab mark
 here. If you just want an ampersand, the remedy is
@@ -328,61 +335,69 @@ you're probably due for more error messages, and you
 might try typing `S' now just to see what is salvageable.
 
 
-Overfull \hbox (6.19312pt too wide) in paragraph at lines 80--84
+Overfull \hbox (6.19312pt too wide) in paragraph at lines 84--88
 \OT1/cmr/m/n/12 in-ter-ak-tiv ges-teuert und ver-wen-det in-verse Kine-matik, u
 m Be-we-gun-gen pr^^?azise
  []
 
-[2]
-Overfull \hbox (15.42357pt too wide) in paragraph at lines 116--120
+[3
+
+] [4]
+Overfull \hbox (15.42357pt too wide) in paragraph at lines 120--124
 \OT1/cmr/m/n/12 zur []Uberpr^^?ufung der ver-schiede-nen Kom-po-nen-ten der An-
 wen-dung, ein-schlie^^Ylich
  []
 
-[3]
-Overfull \hbox (58.63702pt too wide) in paragraph at lines 129--135
+
+Overfull \hbox (58.63702pt too wide) in paragraph at lines 133--139
 \OT1/cmr/m/n/12 Eine wesentliche M^^?oglichkeit besteht in der Er-weiterung der
  Kon-fig-u-ra-tionsm^^?oglichkeiten
  []
 
 
-Overfull \hbox (15.89117pt too wide) in paragraph at lines 136--142
+Overfull \hbox (15.89117pt too wide) in paragraph at lines 140--146
 \OT1/cmr/m/n/12 Grafiken, bein-hal-ten. Solche Verbesserun-gen k^^?onnten die B
 e-nutzer-fre-undlichkeit
  []
 
-
-Overfull \hbox (3.57787pt too wide) in paragraph at lines 144--149
+[5]
+Overfull \hbox (3.57787pt too wide) in paragraph at lines 148--153
 \OT1/cmr/m/n/12 M^^?oglichkeit, ver-schiedene Kon-fig-u-ra-tio-nen des Roboter-
 arms zu testen, k^^?onnen
  []
 
 
-Overfull \hbox (8.082pt too wide) in paragraph at lines 144--149
+Overfull \hbox (8.082pt too wide) in paragraph at lines 148--153
 \OT1/cmr/m/n/12 Be-nutzer ein tief-eres Verst^^?andnis f^^?ur die Funk-tion-swe
 ise und Be-we-gungsabl^^?aufe
  []
 
-[4]
-Overfull \hbox (13.86525pt too wide) in paragraph at lines 150--161
+
+Overfull \hbox (13.86525pt too wide) in paragraph at lines 154--165
 \OT1/cmr/m/n/12 Mod-el-lierung und der kine-ma-tis-chen Steuerung haben gezeigt
 , wie anspruchsvoll
  []
 
 
-Overfull \hbox (4.78342pt too wide) in paragraph at lines 150--161
+Overfull \hbox (4.78342pt too wide) in paragraph at lines 154--165
 \OT1/cmr/m/n/12 Pla-nung und Im-ple-men-tierung sind weit-er-hin Verbesserun-ge
 n und Er-weiterun-
  []
 
-[5]
-Overfull \hbox (3.04686pt too wide) in paragraph at lines 195--197
+[6] [7]
+<Bild 1.jpg, id=33, 303.1325pt x 209.78375pt>
+File: Bild 1.jpg Graphic file (type jpg)
+<use Bild 1.jpg>
+Package pdftex.def Info: Bild 1.jpg  used on input line 200.
+(pdftex.def)             Requested size: 390.0pt x 269.9051pt.
+
+Overfull \hbox (3.04686pt too wide) in paragraph at lines 204--206
 \OT1/cmr/m/n/12 forder-lich. Dieser wird je nach Be-darf durch eine if-else-Anw
 eisung aufgerufen. 
  []
 
-technischer_bericht.tex:198: Undefined control sequence.
-l.198                 \subsubsubsection
+technischer_bericht.tex:207: Undefined control sequence.
+l.207                 \subsubsubsection
                                        {Berechnung für 1 Gelenk}
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
@@ -390,23 +405,179 @@ misspelled it (e.g., `\hobx'), type `I' and the correct
 spelling (e.g., `I\hbox'). Otherwise just continue,
 and I'll forget about whatever was undefined.
 
-[6]
-technischer_bericht.tex:228: Undefined control sequence.
-l.228     \subsubsubsection
-                           {Berechnung für 2 Gelenke}
+<Bild 2.jpg, id=34, 301.62688pt x 204.765pt>
+File: Bild 2.jpg Graphic file (type jpg)
+<use Bild 2.jpg>
+Package pdftex.def Info: Bild 2.jpg  used on input line 222.
+(pdftex.def)             Requested size: 390.0pt x 264.75719pt.
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+[8 <./Bild 1.jpg>]
+technischer_bericht.tex:243: Undefined control sequence.
+l.243                 \subsubsubsection
+                                       {Berechnung für 2 Gelenke}
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
 misspelled it (e.g., `\hobx'), type `I' and the correct
 spelling (e.g., `I\hbox'). Otherwise just continue,
 and I'll forget about whatever was undefined.
 
+<Bild 3.jpg, id=39, 306.14375pt x 237.88875pt>
+File: Bild 3.jpg Graphic file (type jpg)
+<use Bild 3.jpg>
+Package pdftex.def Info: Bild 3.jpg  used on input line 250.
+(pdftex.def)             Requested size: 390.0pt x 303.06636pt.
 
-Overfull \hbox (10.3667pt too wide) in paragraph at lines 243--245
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+
+Overfull \hbox (10.3667pt too wide) in paragraph at lines 264--266
 []\OT1/cmr/m/n/12 F^^?ur die Berech-nung des El-len-bo-gen-winkels kann nun der
  Kos-i-nus-satz umgestellt
  []
 
-[7] [8]
+[9 <./Bild 2.jpg>] [10 <./Bild 3.jpg>]
+technischer_bericht.tex:328: Undefined control sequence.
+l.328                 \subsubsubsection
+                                       {Berechnung für 3 Gelenke}
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+[11]
+<Bild 4.jpg, id=49, 319.69438pt x 132.99687pt>
+File: Bild 4.jpg Graphic file (type jpg)
+<use Bild 4.jpg>
+Package pdftex.def Info: Bild 4.jpg  used on input line 344.
+(pdftex.def)             Requested size: 390.0pt x 162.24782pt.
+
+Overfull \hbox (5.22998pt too wide) detected at line 366
+\OML/cmm/m/it/12 wristtarget \OT1/cmr/m/n/12 = [100\OML/cmm/m/it/12 ; \OT1/cmr/
+m/n/12 20] \OMS/cmsy/m/n/12 ^^@ \OT1/cmr/m/n/12 [70 \OMS/cmsy/m/n/12 ^^C \OML/c
+mm/m/it/12 cos\OT1/cmr/m/n/12 (0\OML/cmm/m/it/12 ; \OT1/cmr/m/n/12 77 \OMS/cmsy
+/m/n/12 ^^@ \OT1/cmr/m/n/12 0\OML/cmm/m/it/12 ; \OT1/cmr/m/n/12 15)\OML/cmm/m/i
+t/12 ; \OT1/cmr/m/n/12 70 \OMS/cmsy/m/n/12 ^^C \OML/cmm/m/it/12 sin\OT1/cmr/m/n
+/12 (0\OML/cmm/m/it/12 ; \OT1/cmr/m/n/12 77 \OMS/cmsy/m/n/12 ^^@ \OT1/cmr/m/n/1
+2 0\OML/cmm/m/it/12 ; \OT1/cmr/m/n/12 15)] = [43\OML/cmm/m/it/12 ; \OMS/cmsy/m/
+n/12 ^^@\OT1/cmr/m/n/12 21]
+ []
+
+[12 <./Bild 4.jpg>]
+<Bild 5.jpg, id=53, 304.63812pt x 175.15437pt>
+File: Bild 5.jpg Graphic file (type jpg)
+<use Bild 5.jpg>
+Package pdftex.def Info: Bild 5.jpg  used on input line 390.
+(pdftex.def)             Requested size: 390.0pt x 224.24226pt.
+<Bild 6.jpg, id=54, 310.15875pt x 99.87312pt>
+File: Bild 6.jpg Graphic file (type jpg)
+<use Bild 6.jpg>
+Package pdftex.def Info: Bild 6.jpg  used on input line 403.
+(pdftex.def)             Requested size: 390.0pt x 125.58173pt.
+ [13 <./Bild 5.jpg>] [14 <./Bild 6.jpg>]
+Overfull \hbox (45.29265pt too wide) detected at line 473
+\OML/cmm/m/it/12 wrist \OT1/cmr/m/n/12 = [266\OML/cmm/m/it/12 ; \OT1/cmr/m/n/12
+ 275] + [105 \OMS/cmsy/m/n/12 ^^C \OML/cmm/m/it/12 cos\OT1/cmr/m/n/12 (0\OML/cm
+m/m/it/12 ; \OT1/cmr/m/n/12 27 \OMS/cmsy/m/n/12 ^^C \OML/cmm/m/it/12 ^^Y \OT1/c
+mr/m/n/12 + 1\OML/cmm/m/it/12 ; \OT1/cmr/m/n/12 72 \OMS/cmsy/m/n/12 ^^C \OML/cm
+m/m/it/12 ^^Y\OT1/cmr/m/n/12 )\OML/cmm/m/it/12 ; \OT1/cmr/m/n/12 105 \OMS/cmsy/
+m/n/12 ^^C \OML/cmm/m/it/12 sin\OT1/cmr/m/n/12 (0\OML/cmm/m/it/12 ; \OT1/cmr/m/
+n/12 27 \OMS/cmsy/m/n/12 ^^C \OML/cmm/m/it/12 ^^Y \OT1/cmr/m/n/12 + 1\OML/cmm/m
+/it/12 ; \OT1/cmr/m/n/12 72 \OMS/cmsy/m/n/12 ^^C \OML/cmm/m/it/12 ^^Y\OT1/cmr/m
+/n/12 )] = [371\OML/cmm/m/it/12 ; \OT1/cmr/m/n/12 272]
+ []
+
+
+Overfull \hbox (171.58168pt too wide) detected at line 476
+\OML/cmm/m/it/12 endeffector \OT1/cmr/m/n/12 = [371\OML/cmm/m/it/12 ; \OT1/cmr/
+m/n/12 272] + [110 \OMS/cmsy/m/n/12 ^^C \OML/cmm/m/it/12 cos\OT1/cmr/m/n/12 (0\
+OML/cmm/m/it/12 ; \OT1/cmr/m/n/12 27 \OMS/cmsy/m/n/12 ^^C \OML/cmm/m/it/12 ^^Y 
+\OT1/cmr/m/n/12 + 1\OML/cmm/m/it/12 ; \OT1/cmr/m/n/12 72 \OMS/cmsy/m/n/12 ^^C \
+OML/cmm/m/it/12 ^^Y \OT1/cmr/m/n/12 + 2\OML/cmm/m/it/12 ; \OT1/cmr/m/n/12 25 \O
+MS/cmsy/m/n/12 ^^C \OML/cmm/m/it/12 ^^Y\OT1/cmr/m/n/12 )\OML/cmm/m/it/12 ; \OT1
+/cmr/m/n/12 110 \OMS/cmsy/m/n/12 ^^C \OML/cmm/m/it/12 sin\OT1/cmr/m/n/12 (0\OML
+/cmm/m/it/12 ; \OT1/cmr/m/n/12 27 \OMS/cmsy/m/n/12 ^^C \OML/cmm/m/it/12 ^^Y \OT
+1/cmr/m/n/12 + 1\OML/cmm/m/it/12 ; \OT1/cmr/m/n/12 72 \OMS/cmsy/m/n/12 ^^C \OML
+/cmm/m/it/12 ^^Y \OT1/cmr/m/n/12 + 2\OML/cmm/m/it/12 ; \OT1/cmr/m/n/12 25 \OMS/
+cmsy/m/n/12 ^^C \OML/cmm/m/it/12 ^^Y\OT1/cmr/m/n/12 )] = [451\OML/cmm/m/it/12 ;
+ \OT1/cmr/m/n/12 347]
+ []
+
+
+Overfull \hbox (7.99031pt too wide) in paragraph at lines 479--482
+\OT1/cmr/m/n/12 angezeigt wer-den, sowie ver-schiedene Kon-fig-u-ra-tionsop-tio
+-nen f^^?ur die Steuerung
+ []
+
+
+Overfull \hbox (58.1406pt too wide) in paragraph at lines 488--496
+[]\OT1/cmr/m/n/12 Die Meth-o-den \up-date[]num[]joints()", \up-date[]arm[]lengt
+h1()", "up-date[]arm[]length2()"
+ []
+
+[15]
+
+technischer_bericht.tex:521: LaTeX Error: Command \quotedblbase unavailable in 
+encoding OT1.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.521 ...k soll der Endeffektor ein Puzzleteil „
+                                                  greifen“ können. Falls ...
+
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+[16]
+
+technischer_bericht.tex:534: LaTeX Error: Command \quotedblbase unavailable in 
+encoding OT1.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.534 ...nnt erst nach Betätigung des Knopfes „
+                                                  Check Positions“. Bei di...
+
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+technischer_bericht.tex:546: Misplaced alignment tab character &.
+l.546 ...r Kollisionserkennung betrifft das Drag &
+                                                   Drop von Puzzleteilen. Hi...
+I can't figure out why you would want to use a tab mark
+here. If you just want an ampersand, the remedy is
+simple: Just type `I\&' now. But if some right brace
+up above has ended a previous alignment prematurely,
+you're probably due for more error messages, and you
+might try typing `S' now just to see what is salvageable.
+
+[17]
+Overfull \hbox (33.57933pt too wide) in paragraph at lines 556--563
+\OT1/cmr/m/n/12 bei der Po-si-tion-ierung des En-d-ef-fek-tors von Be-deu-tung.
+ Die Meth-ode \on[]press(self,
+ []
+
+
+Overfull \hbox (15.01884pt too wide) in paragraph at lines 565--568
+\OT1/cmr/m/n/12 W^^?ahrend der Arm-be-we-gung wird die Meth-ode \on[]drag(self,
+ event)" aufgerufen,
+ []
+
+
+Overfull \hbox (4.06073pt too wide) in paragraph at lines 565--568
+\OT1/cmr/m/n/12 arms folgt. Hi-er-bei wird sichergestellt, dass das Puz-zleteil
+ im-mer entsprechend
+ []
+
+[18]
 (C:/Users\ScharnkeNikias\OneDrive - RealCore Group GmbH\Dokumente\Mathe\mathe\a
 uxil\technischer_bericht.aux)
  ***********
@@ -415,10 +586,10 @@ L3 programming layer <2024-01-04>
  ***********
  ) 
 Here is how much of TeX's memory you used:
- 3914 strings out of 474485
- 59973 string characters out of 5739486
+ 4003 strings out of 474485
+ 61607 string characters out of 5739486
  1932542 words of memory out of 5000000
- 26196 multiletter control sequences out of 15000+600000
+ 26282 multiletter control sequences out of 15000+600000
  565139 words of font info for 61 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  57i,7n,65p,397b,265s stack positions out of 10000i,1000n,20000p,200000b,200000s
@@ -436,9 +607,9 @@ eNikias/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy8.pfb>
 <C:/Users/ScharnkeNikias/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfo
 nts/cm/cmtt12.pfb>
 Output written on "C:/Users\ScharnkeNikias\OneDrive - RealCore Group GmbH\Dokum
-ente\Mathe\mathe\out\technischer_bericht.pdf" (8 pages, 144748 bytes).
+ente\Mathe\mathe\out\technischer_bericht.pdf" (18 pages, 329205 bytes).
 PDF statistics:
- 79 PDF objects out of 1000 (max. 8388607)
+ 116 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
- 1 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 31 words of extra memory for PDF output out of 10000 (max. 10000000)
 

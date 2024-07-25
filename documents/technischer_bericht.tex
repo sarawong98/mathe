@@ -53,6 +53,10 @@
         interaktiv zu steuern und Puzzleteile zu bewegen. Nutzer können den Roboterarm selbst konfigurieren
         und so die Komplexität der Steuerung kennenlernen.
     \end{abstract}
+    \clearpage
+    \tableofcontents
+    \clearpage
+
 
     \section{Motivation}
         Roboterarmsimulationen sind ein wesentlicher Bestandteil der Robotikforschung. Sie ermöglichen es,
@@ -191,6 +195,11 @@
                     c = \sqrt{80^2 + 60^2} = 100
                 \]
 
+                \begin{figure}[h]
+                    \centering
+                    \includegraphics[width = \linewidth]{Bild 1}
+                    \caption{Bild 1}
+                \end{figure}
 
                 Für die Berechnung bei 1, 2 und 3 Gelenken ist unterschiedlicher Code erforderlich. Dieser wird je
                 nach Bedarf durch eine if-else-Anweisung aufgerufen.
@@ -207,6 +216,12 @@
                     \[
                         \theta=arctan(\frac{60}{80})=0,64 (36,87^\circ)
                     \]
+
+                    \begin{figure}[h]
+                        \centering
+                        \includegraphics[width = \linewidth]{Bild 2}
+                        \caption{Bild 2}
+                    \end{figure}
 
                     Multipliziert man nun die Armlänge mit dem Sinus beziehungsweise dem Kosinus des Winkels, erhält
                     man den Endeffektor.
@@ -225,10 +240,16 @@
                     \]
 
 
-    \subsubsubsection{Berechnung für 2 Gelenke}
+                \subsubsubsection{Berechnung für 2 Gelenke}
                     Bei der Berechnung der Winkel mit zwei Armsegmenten wird wie bei einem Armsegment auch zuerst
                     die Distanz zwischen dem Endeffektor und dem Ursprung berechnet. Zusätzlich sind die Längen der
                     beiden Armsegmente gegeben, woraus ein Dreieck mit drei bekannten Seitenlängen entsteht.
+
+                    \begin{figure}[h]
+                        \centering
+                        \includegraphics[width = \linewidth]{Bild 3}
+                        \caption{Bild 3}
+                    \end{figure}
 
                     \[
                         a=50
@@ -318,9 +339,15 @@
                         102 < 180
                     \]
 
+                    \begin{figure}[h]
+                        \centering
+                        \includegraphics[width = \linewidth]{Bild 4}
+                        \caption{Bild 4}
+                    \end{figure}
+
                     Kosinussatz:
                     \[
-                        elbow_angle = arccos(\frac{(100^2 +20^2)-60^2-50^2}{2*60*50}) = 0,77
+                        elbowangle = arccos(\frac{(100^2 +20^2)-60^2-50^2}{2*60*50}) = 0,77
                     \]
 
                     \[
@@ -330,27 +357,27 @@
                         k2 = 50*sin(0,77) = 35
                     \]
                     \[
-                        shoulder_angle = arctan(\frac{20}{100}) - arctan(\frac{35}{96}) = -0,15
+                        shoulderangle = arctan(\frac{20}{100}) - arctan(\frac{35}{96}) = -0,15
                     \]
 
 
                     \[
-                        wrist_target = [100, 20] - [70 * cos(0,77 - 0,15), 70* sin(0,77 -0,15)] = [43, -21]
+                        wristtarget = [100, 20] - [70 * cos(0,77 - 0,15), 70* sin(0,77 -0,15)] = [43, -21]
                     \]
 
                     \[
-                        wrist_dx = 43 - 200 = -157
+                        wristdx = 43 - 200 = -157
                     \]
 
                     \[
-                        wrist_dx = -21 - 200 = -221
+                        wristdx = -21 - 200 = -221
                     \]
 
                     \[
-                        wrist_angle1 = arctan(\frac{-221}{.157})= 0,95
+                        wristangle1 = arctan(\frac{-221}{.157})= 0,95
                     \]
                     \[
-                        writs_angle = 0,77 -0,15 -0,95 = -0,33
+                        writsangle = 0,77 -0,15 -0,95 = -0,33
                     \]
 
                     Eine zweite Implementierung nutzt die Formeln, die man durch die gegebenen Werte aufstellen kann, um die fehlenden
@@ -358,12 +385,24 @@
                     zwischen den berechneten Werten und den zuvor gegebenen Winkeln zu minimieren.
                     Die beiden Formeln werden aus der folgenden Skizze ersichtlich:
 
+                    \begin{figure}[h]
+                        \centering
+                        \includegraphics[width = \linewidth]{Bild 5}
+                        \caption{Bild 5}
+                    \end{figure}
+
                     \[
-                        dx = arm_lengths[0] * cos(\alpha) + arm_lengths[1] * cos(\beta) + arm_length[2] * cos(\gamma)
+                        dx = armlengths[0] * cos(\alpha) + armlengths[1] * cos(\beta) + armlength[2] * cos(\gamma)
                     \]
                     \[
-                        dx = arm_lengths[0] * sin(\alpha) + arm_lengths[1] * sin(\beta) + arm_length[2] * sin(\gamma)
+                        dx = armlengths[0] * sin(\alpha) + armlengths[1] * sin(\beta) + armlength[2] * sin(\gamma)
                     \]
+
+                    \begin{figure}[h]
+                        \centering
+                        \includegraphics[width = \linewidth]{Bild 6}
+                        \caption{Bild 6}
+                    \end{figure}
 
                     In dem Beispiel ist die Ausgangsposition vom Roboterarm auf der linken Skizze abgebildet und die
                     Winkel und Armlängen sind:
@@ -379,13 +418,13 @@
                     \]
 
                     \[
-                        arm_lengths[0] = 100
+                        armlengths[0] = 100
                     \]
                     \[
-                        arm_lengths[1] = 105
+                        armlengths[1] = 105
                     \]
                     \[
-                        arm_lengths[2] = 110
+                        armlengths[2] = 110
                     \]
 
                     \[
@@ -412,13 +451,13 @@
 
                     Das Ergebnis der Rechnung lautet somit:
                     \[
-                        self.shoulder_angle = 0,27 *\pi
+                        self.shoulderangle = 0,27 *\pi
                     \]
                     \[
-                        self.elbow_angle = 1,72 *\pi
+                        self.elbowangle = 1,72 *\pi
                     \]
                     \[
-                        self.wrist_angle = 2,25 *\pi
+                        self.wristangle = 2,25 *\pi
                     \]
 
                     Schließlich müssen auch noch die Positionen aller Gelenke und des Endeffektors berechnet werden.
@@ -432,28 +471,99 @@
                     \[
                         wrist = [266, 275] + [105 * cos(0,27 * \pi + 1,72 * \pi), 105 * sin(0,27*\pi + 1,72 * \pi)] = [371, 272]
                     \]
-    \[
-        endeffector = [371, 272] + [ 110 * cos(0,27*\pi + 1,72*\pi + 2,25*\pi), 110 * sin(0,27*\pi + 1,72*\pi + 2,25*\pi)] = [451, 347]
-    \]
+                    \[
+                        endeffector = [371, 272] + [ 110 * cos(0,27*\pi + 1,72*\pi + 2,25*\pi), 110 * sin(0,27*\pi + 1,72*\pi + 2,25*\pi)] = [451, 347]
+                    \]
 
+        \subsection{GUI-Klasse}
+            Die GUI-Klasse initialisiert die Hauptkomponenten der Benutzeroberfläche. Sie erstellt ein Canvas-Widget,
+            auf dem der Roboterarm und die Puzzleteile angezeigt werden, sowie verschiedene Konfigurationsoptionen für
+            die Steuerung des Roboterarms.
 
+            \subsubsection{Konfigurationspanel}
+                Das Konfigurationspanel ermöglicht es dem Benutzer, die Anzahl der Gelenke sowie die Längen der Arme
+                des Roboterarms anzupassen. Diese Einstellungen werden dabei dynamisch aktualisiert, sodass Änderungen
+                in Echtzeit umgesetzt und visuell dargestellt werden.
 
+                Die Methoden “update\_num\_joints()”, “update\_arm\_length1()”,
+                ”update\_arm\_length2()” und
+                “update\_arm\_length3()” dienen dazu, die Parameter des Roboterarms zu aktualisieren und ihn
+                anschließend neu zu zeichnen.
+                Die Methode “update\_num\_joints()” aktualisiert die Anpassungsmöglichkeiten des Roboterarms. Je nach
+                der gewählten Anzahl der Gelenke werden die entsprechenden Konfigurationsoptionen des Roboterarms
+                angezeigt oder ausgeblendet. Nach der Aktualisierung wird der Roboterarm neu gezeichnet, um die
+                Änderungen visuell darzustellen.
 
+            \subsubsection{Puzzleteile und Grid (Zielfläche)}
+                Die Puzzleteile werden erstellt und zufällig auf dem Canvas platziert. Ein 2x2-Grid dient als
+                Zielbereich für die Puzzleteile. Ein Bild ist hinterlegt, aus welchem die Puzzleteile erstellt werden.
+                Vorerst bildet ein 2x2-Grid bestehend aus Quadraten das Zielfeld, in welches die Puzzleteile
+                hineingelegt werden sollen. Auf dieser Basis wird das Bild auf die benötigte Größe skaliert, sodass
+                das Zielfeld vom Bild abgedeckt wird. Anschließend werden die Puzzleteile mit der vorher definierten
+                Feldgröße erstellt, indem entsprechend große Teile aus dem Bild ausgeschnitten werden. Jedes
+                Puzzleteil wird mit einem Eventlistener verbunden und in eine Liste von Puzzleteilen hinzugefügt.
 
+    
+                Das Grid wird auf ähnliche Weise erstellt wie die Puzzleteile. Hierbei werden Quadrate in der zuvor
+                definierten Feldgröße ohne Lücken aneinandergesetzt. Abschließend wird jedem Quadrat eine Position
+                zugewiesen.
+    
+            \subsubsection{Puzzleteile bewegen}
+                Um den Roboterarm zu bewegen, muss dieser mit einem Linksklick ausgewählt werden. Dabei wird zunächst
+                überprüft, ob sich der Abstand zwischen dem Mauszeiger und dem Endeffektor innerhalb eines Radius
+                von 10 befindet.
 
+                Während der Bewegung des Arms wird die Methode “on\_drag()” kontinuierlich ausgeführt. In diesem
+                Prozess werden fortlaufend die Position des Endeffektors sowie die des ausgewählten Puzzleteils an
+                die Position des Mauszeigers angepasst.
 
+            \subsubsection{Puzzleteile aufnehmen und ablegen}
+                Durch einen Rechtsklick soll der Endeffektor ein Puzzleteil „greifen“ können. Falls der Greifarm noch
+                kein Puzzleteil aufgenommen hat, wird ihm das Puzzleteil zugewiesen, dessen Koordinaten mit der
+                Position des Endeffektors übereinstimmen. Danach wird der Endeffektor zentriert auf das Puzzleteil
+                positioniert.
 
+                Wenn der Greifarm bereits ein Puzzleteil aufgenommen hat, werden die Koordinaten des Puzzleteils mit 
+                den Koordinaten der Quadrate im Zielfeld verglichen. Ein Puzzleteil wird auf einem Quadrat platziert,
+                wenn der Abstand zwischen den Koordinaten kleiner als 3 ist. Diese Bedingung wird durch den logischen 
+                Ausdruck in der Methode “is\_inside()” überprüft. Ist dies zutreffend, wird das Puzzleteil auf das
+                entsprechende Quadrat im Grid gesetzt. Diese Vorgehensweise trägt zur Verbesserung der
+                Benutzerfreundlichkeit bei.
+    
+            \subsubsection{Überprüfung der Position}
+                Die Überprüfung beginnt erst nach Betätigung des Knopfes „Check Positions“. Bei diesem Schritt
+                werden die hinterlegten Positionen der Puzzleteile mit den aktuellen Positionen verglichen, um
+                sicherzustellen, dass alle Teile korrekt platziert sind. Ein Zähler wird nur dann erhöht, wenn die
+                Positionen der Puzzleteile mit den vorgegebenen Positionen übereinstimmen. Dieser Zähler gibt nach
+                der Überprüfung an, wie viele Puzzleteile korrekt positioniert wurden.
 
+        \subsection{Kollisionserkennung}
+            Diese Mechanismen tragen dazu bei, eine präzise und benutzerfreundliche Interaktion mit dem 
+            Roboterarm und den Puzzleteilen zu gewährleisten. Die Kollisionserkennung ist entscheidend für
+            die korrekte Funktionalität der Anwendung und die Genauigkeit der Interaktionen.
+            
+            \subsubsection{Kollisionserkennung beim Drag \& Drop von Puzzleteilen}
+                Ein zentraler Aspekt der Kollisionserkennung betrifft das Drag & Drop von Puzzleteilen. Hierbei wird
+                die Methode “on\_right\_click(self, event)” verwendet, um den Greifarm Puzzleteile mit der rechten
+                Maustaste aufnehmen oder ablegen zu lassen. Um sicherzustellen, dass das Puzzleteil korrekt auf
+                einem Quadrat positioniert wird, wird die Methode “is\_inside(self, square\_coords, piece\_coords)”
+                verwendet. Diese Methode überprüft, ob die Randkoordinaten des Puzzleteils innerhalb der Grenzen 
+                eines Grid-Quadrats liegen, wobei eine Toleranz von 3 berücksichtigt wird. Diese Toleranz hilft,
+                kleine Abweichungen in der Positionierung auszugleichen und gewährleistet eine präzise Platzierung
+                der Puzzleteile, was zu einer höheren Benutzerfreundlichkeit beiträgt.
+    
+            \subsubsection{Kollisionserkennung bei der Positionierung des Endeffektors}
+                Zusätzlich zur Platzierung von Puzzleteilen ist die Kollisionserkennung auch bei der Positionierung
+                des Endeffektors von Bedeutung. Die Methode “on\_press(self, event)” wird aktiviert, wenn der Benutzer
+                die Maus in der Nähe des Endeffektors klickt, um den Drag-Modus zu starten. Um festzustellen, ob sich
+                der Mauszeiger in der Nähe des Endeffektors befindet, verwendet die Methode
+                “is\_near\_end\_effector(self, x, y)” die euklidische Distanz zwischen der Position des Mauszeigers und
+                der Position des Endeffektors. Ein Radius von 10 wird hierbei als Kriterium verwendet, um die Nähe
+                zu überprüfen.
 
-
-
-
-
-
-
-
-
-
-
+            \subsubsection{Kollisionserkennung während der Armbewegung}
+                Während der Armbewegung wird die Methode “on\_drag(self, event)” aufgerufen, die es ermöglicht, dass
+                das ausgewählte Puzzleteil der Bewegung des Roboterarms folgt. Hierbei wird sichergestellt, dass das
+                Puzzleteil immer entsprechend der Position des Endeffektors aktualisiert wird.
 
 \end{document}
