@@ -46,31 +46,31 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "Python.2D_Raum_Puzzle.executor": "Run",
-    "Python.3D-Greifarm.executor": "Run",
-    "Python.3D_Raum_Roboterarm.executor": "Run",
-    "Python.3D_Test.executor": "Run",
-    "Python.Idee1_Maja.executor": "Run",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "git-widget-placeholder": "lara",
-    "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "C:/Users/sari3/PycharmProjects/mathe",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Python.2D_Raum_Puzzle.executor&quot;: &quot;Run&quot;,
+    &quot;Python.3D-Greifarm.executor&quot;: &quot;Run&quot;,
+    &quot;Python.3D_Raum_Roboterarm.executor&quot;: &quot;Run&quot;,
+    &quot;Python.3D_Test.executor&quot;: &quot;Run&quot;,
+    &quot;Python.Idee1_Maja.executor&quot;: &quot;Run&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;lara&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/sari3/PycharmProjects/mathe&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   },
-  "keyToStringList": {
-    "com.intellij.ide.scratch.ScratchImplUtil$2/New Scratch File": [
-      "Python",
-      "PLAIN_TEXT"
+  &quot;keyToStringList&quot;: {
+    &quot;com.intellij.ide.scratch.ScratchImplUtil$2/New Scratch File&quot;: [
+      &quot;Python&quot;,
+      &quot;PLAIN_TEXT&quot;
     ]
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\sari3\PycharmProjects\mathe" />
@@ -101,6 +101,7 @@
       <workItem from="1720619772377" duration="5398000" />
       <workItem from="1720629349180" duration="10369000" />
       <workItem from="1720708573578" duration="504000" />
+      <workItem from="1720790914462" duration="47000" />
     </task>
     <task id="LOCAL-00001" summary="initial Commit">
       <option name="closed" value="true" />
