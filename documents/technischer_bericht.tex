@@ -304,4 +304,156 @@
                     Diese Punkte werden miteinander verbunden und werden dauerhaft aktualisiert, wodurch der
                     Roboterarm dargestellt wird und sich den Bewegungen anpasst.
 
+                \subsubsubsection{Berechnung für 3 Gelenke}
+                    Die Winkel für die 3 Gelenke können auf verschiedene Weisen berechnet werden. Für die erste
+                    Implementierung wurden wie zuvor nur Formeln der Trigonometrie verwendet. Dort wird der
+                    Roboterarm von der Ellbogen-Position aus gesteuert. Hier hat man sich zunutze gemacht, dass
+                    der Ellbogen- und Handgelenk-Winkel derselbe aber gespiegelt sein kann.
+                    Erstmal muss sichergegangen werden, dass das Ziel in Reichweite liegt:
+
+                    \[
+                        \sqrt{100^2 + 20^2} < 60 + 50 +70
+                    \]
+                    \[
+                        102 < 180
+                    \]
+
+                    Kosinussatz:
+                    \[
+                        elbow_angle = arccos(\frac{(100^2 +20^2)-60^2-50^2}{2*60*50}) = 0,77
+                    \]
+
+                    \[
+                        k1 = 60 +50 * cos(0,77) = 96
+                    \]
+                    \[
+                        k2 = 50*sin(0,77) = 35
+                    \]
+                    \[
+                        shoulder_angle = arctan(\frac{20}{100}) - arctan(\frac{35}{96}) = -0,15
+                    \]
+
+
+                    \[
+                        wrist_target = [100, 20] - [70 * cos(0,77 - 0,15), 70* sin(0,77 -0,15)] = [43, -21]
+                    \]
+
+                    \[
+                        wrist_dx = 43 - 200 = -157
+                    \]
+
+                    \[
+                        wrist_dx = -21 - 200 = -221
+                    \]
+
+                    \[
+                        wrist_angle1 = arctan(\frac{-221}{.157})= 0,95
+                    \]
+                    \[
+                        writs_angle = 0,77 -0,15 -0,95 = -0,33
+                    \]
+
+                    Eine zweite Implementierung nutzt die Formeln, die man durch die gegebenen Werte aufstellen kann, um die fehlenden
+                    Winkel rauszubekommen. Das geschieht durch ein numerisches Optimierungsverfahren, das darauf abzielt, die Differenzen
+                    zwischen den berechneten Werten und den zuvor gegebenen Winkeln zu minimieren.
+                    Die beiden Formeln werden aus der folgenden Skizze ersichtlich:
+
+                    \[
+                        dx = arm_lengths[0] * cos(\alpha) + arm_lengths[1] * cos(\beta) + arm_length[2] * cos(\gamma)
+                    \]
+                    \[
+                        dx = arm_lengths[0] * sin(\alpha) + arm_lengths[1] * sin(\beta) + arm_length[2] * sin(\gamma)
+                    \]
+
+                    In dem Beispiel ist die Ausgangsposition vom Roboterarm auf der linken Skizze abgebildet und die
+                    Winkel und Armlängen sind:
+
+                    \[
+                        \alpha = 0,5*\pi
+                    \]
+                    \[
+                        \beta = 1,5 * \pi
+                    \]
+                    \[
+                        \gamma = 2,5 * \pi
+                    \]
+
+                    \[
+                        arm_lengths[0] = 100
+                    \]
+                    \[
+                        arm_lengths[1] = 105
+                    \]
+                    \[
+                        arm_lengths[2] = 110
+                    \]
+
+                    \[
+                        dx = 250
+                    \]
+                    \[
+                        dy = 150
+                    \]
+
+                    Diese Werte werden zum Initial Guess, das sind die Winkel, an denen sich der Algorithmus
+                    orientiert.
+
+                    Die Formeln sähen mit den gegebenen Werten folgendermaßen aus:
+
+                    \[
+                        0 = 100 * cos(\alpha) + 105 * cos(\beta) + 110 * cos(\gamma) -250
+                    \]
+                    \[
+                        0 = 100 * sin(\alpha) + 105 * sin(\beta) + 110 * sin(\gamma) -150
+                    \]
+
+                    Nun wird mit den obigen aufgestellten Formeln und den Orientierungswerten der least squares-
+                    Algorithmus aufgerufen. In dem Ergebnis sind dann die optimalen Winkel für den Roboterarm.
+
+                    Das Ergebnis der Rechnung lautet somit:
+                    \[
+                        self.shoulder_angle = 0,27 *\pi
+                    \]
+                    \[
+                        self.elbow_angle = 1,72 *\pi
+                    \]
+                    \[
+                        self.wrist_angle = 2,25 *\pi
+                    \]
+
+                    Schließlich müssen auch noch die Positionen aller Gelenke und des Endeffektors berechnet werden.
+                    Das Verfahren unterscheidet sich gar nicht, zudem wie man in der ersten Variante vorgehen würde.
+                    Die Position der Schulter, welche sich beim Bewegen des Roboterarmes nicht mitbewegt, liegt bei
+                    [200, 200].
+
+                    \[
+                        elbow = [200, 200] + [100 * cos(0,27 * \pi), 100 * sin(0,27*\pi)] = [266, 275]
+                    \]
+                    \[
+                        wrist = [266, 275] + [105 * cos(0,27 * \pi + 1,72 * \pi), 105 * sin(0,27*\pi + 1,72 * \pi)] = [371, 272]
+                    \]
+    \[
+        endeffector = [371, 272] + [ 110 * cos(0,27*\pi + 1,72*\pi + 2,25*\pi), 110 * sin(0,27*\pi + 1,72*\pi + 2,25*\pi)] = [451, 347]
+    \]
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 \end{document}
