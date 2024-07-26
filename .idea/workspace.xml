@@ -4,12 +4,14 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="4860f8ad-b64b-4e54-b23d-c10db0ba5a63" name="Changes" comment="Bericht bis Implementierung">
+    <list default="true" id="4860f8ad-b64b-4e54-b23d-c10db0ba5a63" name="Changes" comment="Alles außer der Code">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Puzzle_Spiel.py" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/auxil/technischer_bericht.aux" beforeDir="false" afterPath="$PROJECT_DIR$/auxil/technischer_bericht.aux" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/auxil/technischer_bericht.log" beforeDir="false" afterPath="$PROJECT_DIR$/auxil/technischer_bericht.log" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/documents/Erklärung 1 Arm.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/auxil/technischer_bericht.toc" beforeDir="false" afterPath="$PROJECT_DIR$/auxil/technischer_bericht.toc" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/documents/technischer_bericht.tex" beforeDir="false" afterPath="$PROJECT_DIR$/documents/technischer_bericht.tex" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/math-puzzles-image.jpg" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/out/technischer_bericht.pdf" beforeDir="false" afterPath="$PROJECT_DIR$/out/technischer_bericht.pdf" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/technischer_bericht.synctex.gz" beforeDir="false" afterPath="$PROJECT_DIR$/out/technischer_bericht.synctex.gz" afterDir="false" />
     </list>
@@ -28,11 +30,23 @@
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="lara" />
+        <entry key="$PROJECT_DIR$" value="code_documentation" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
+  <component name="GitHubPullRequestSearchHistory">{
+  &quot;lastFilter&quot;: {
+    &quot;state&quot;: &quot;OPEN&quot;,
+    &quot;assignee&quot;: &quot;nikias6&quot;
+  }
+}</component>
+  <component name="GithubPullRequestsUISettings">{
+  &quot;selectedUrlAndAccountId&quot;: {
+    &quot;url&quot;: &quot;https://github.com/sarawong98/mathe.git&quot;,
+    &quot;accountId&quot;: &quot;e5e680f7-4523-483e-a465-7c1f8ddf1563&quot;
+  }
+}</component>
   <component name="ProjectColorInfo">{
   &quot;customColor&quot;: &quot;&quot;,
   &quot;associatedIndex&quot;: 7
@@ -42,32 +56,32 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "LaTeX.technischer_bericht.executor": "Run",
-    "Python.2D_Raum_Puzzle.executor": "Run",
-    "Python.3D-Greifarm.executor": "Run",
-    "Python.3D_Raum_Roboterarm.executor": "Run",
-    "Python.3D_Test.executor": "Run",
-    "Python.Idee1_Maja.executor": "Run",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "git-widget-placeholder": "main",
-    "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "C:/Users/sari3/PycharmProjects/mathe",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;LaTeX.technischer_bericht.executor&quot;: &quot;Run&quot;,
+    &quot;Python.2D_Raum_Puzzle.executor&quot;: &quot;Run&quot;,
+    &quot;Python.3D-Greifarm.executor&quot;: &quot;Run&quot;,
+    &quot;Python.3D_Raum_Roboterarm.executor&quot;: &quot;Run&quot;,
+    &quot;Python.3D_Test.executor&quot;: &quot;Run&quot;,
+    &quot;Python.Idee1_Maja.executor&quot;: &quot;Run&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/sari3/PycharmProjects/mathe&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   },
-  "keyToStringList": {
-    "com.intellij.ide.scratch.ScratchImplUtil$2/New Scratch File": [
-      "Python",
-      "PLAIN_TEXT"
+  &quot;keyToStringList&quot;: {
+    &quot;com.intellij.ide.scratch.ScratchImplUtil$2/New Scratch File&quot;: [
+      &quot;Python&quot;,
+      &quot;PLAIN_TEXT&quot;
     ]
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\sari3\PycharmProjects\mathe" />
@@ -76,8 +90,8 @@
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
-        <option value="bundled-jdk-9f38398b9061-18abd8497189-intellij.indexing.shared.core-IU-241.14494.240" />
-        <option value="bundled-js-predefined-1d06a55b98c1-74d2a5396914-JavaScript-IU-241.14494.240" />
+        <option value="bundled-jdk-9f38398b9061-39b83d9b5494-intellij.indexing.shared.core-IU-241.18034.62" />
+        <option value="bundled-js-predefined-1d06a55b98c1-0b3e54e931b4-JavaScript-IU-241.18034.62" />
       </set>
     </attachedChunks>
   </component>
@@ -98,6 +112,8 @@
       <workItem from="1720619772377" duration="5398000" />
       <workItem from="1720629349180" duration="10369000" />
       <workItem from="1720708573578" duration="504000" />
+      <workItem from="1721983233374" duration="898000" />
+      <workItem from="1721985854440" duration="4977000" />
     </task>
     <task id="LOCAL-00001" summary="initial Commit">
       <option name="closed" value="true" />
@@ -171,7 +187,15 @@
       <option name="project" value="LOCAL" />
       <updated>1721908397209</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="Alles außer der Code">
+      <option name="closed" value="true" />
+      <created>1721912227461</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1721912227461</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -188,7 +212,8 @@
     <MESSAGE value="make puzzle pieces draggable" />
     <MESSAGE value="Bericht bis 2 Gelenke" />
     <MESSAGE value="Bericht bis Implementierung" />
-    <option name="LAST_COMMIT_MESSAGE" value="Bericht bis Implementierung" />
+    <MESSAGE value="Alles außer der Code" />
+    <option name="LAST_COMMIT_MESSAGE" value="Alles außer der Code" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/mathe$3D_Greifarm.coverage" NAME="3D-Greifarm Coverage Results" MODIFIED="1719399957341" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
