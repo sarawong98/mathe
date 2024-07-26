@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (MiKTeX 24.1) (preloaded format=pdflatex 2024.7.24)  26 JUL 2024 12:47
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (MiKTeX 24.1) (preloaded format=pdflatex 2024.7.24)  26 JUL 2024 14:02
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -297,8 +297,16 @@ uxil\technischer_bericht.toc)
  [2
 
 ]
-technischer_bericht.tex:96: Misplaced alignment tab character &.
-l.96     muss. Der Greifarm wird durch Drag &
+(C:/Users\ScharnkeNikias\OneDrive - RealCore Group GmbH\Dokumente\Mathe\mathe\a
+uxil\technischer_bericht.lof)
+\tf@lof=\write4
+\openout4 = `technischer_bericht.lof'.
+
+ [3
+
+]
+technischer_bericht.tex:98: Misplaced alignment tab character &.
+l.98     muss. Der Greifarm wird durch Drag &
                                               Drop interaktiv gesteuert und ...
 I can't figure out why you would want to use a tab mark
 here. If you just want an ampersand, the remedy is
@@ -307,15 +315,15 @@ up above has ended a previous alignment prematurely,
 you're probably due for more error messages, and you
 might try typing `S' now just to see what is salvageable.
 
-[3
+[4
 
-] [4]
-Overfull \hbox (0.71153pt too wide) in paragraph at lines 132--136
+] [5]
+Overfull \hbox (0.71153pt too wide) in paragraph at lines 134--138
 \T1/cmr/m/n/12 zur Über-prü-fung der ver-schie-de-nen Kom-po-nen-ten der An-wen
 -dung, ein-schlieÿ-
  []
 
-[5] [6] (PuzzleSpiel.py [7]
+[6] [7] (PuzzleSpiel.py [8]
 
 PuzzleSpiel.py:32: LaTeX Error: Invalid UTF-8 byte sequence (Ã\lst@EC¼).
 
@@ -347,10 +355,10 @@ in the document preamble.
 Alternatively, save the file in UTF-8 using your editor or another tool
 
 )
-<Bild 1.jpg, id=34, 303.1325pt x 209.78375pt>
+<Bild 1.jpg, id=37, 303.1325pt x 209.78375pt>
 File: Bild 1.jpg Graphic file (type jpg)
 <use Bild 1.jpg>
-Package pdftex.def Info: Bild 1.jpg  used on input line 218.
+Package pdftex.def Info: Bild 1.jpg  used on input line 220.
 (pdftex.def)             Requested size: 390.0pt x 269.9051pt.
 
 
@@ -372,9 +380,9 @@ or specify an encoding such as \usepackage [latin1]{inputenc}
 in the document preamble.
 Alternatively, save the file in UTF-8 using your editor or another tool
 
-[8])
-technischer_bericht.tex:229: Undefined control sequence.
-l.229     \subsubsubsection
+[9])
+technischer_bericht.tex:231: Undefined control sequence.
+l.231     \subsubsubsection
                            {Berechnung fÃ¼r 1 Gelenk}
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
@@ -382,11 +390,11 @@ misspelled it (e.g., `\hobx'), type `I' and the correct
 spelling (e.g., `I\hbox'). Otherwise just continue,
 and I'll forget about whatever was undefined.
 
-[9 <./Bild 1.jpg>]
-<Bild 2.jpg, id=45, 301.62688pt x 204.765pt>
+[10 <./Bild 1.jpg>]
+<Bild 2.jpg, id=48, 301.62688pt x 204.765pt>
 File: Bild 2.jpg Graphic file (type jpg)
 <use Bild 2.jpg>
-Package pdftex.def Info: Bild 2.jpg  used on input line 244.
+Package pdftex.def Info: Bild 2.jpg  used on input line 246.
 (pdftex.def)             Requested size: 390.0pt x 264.75719pt.
  (PuzzleSpiel.py
 
@@ -419,9 +427,9 @@ or specify an encoding such as \usepackage [latin1]{inputenc}
 in the document preamble.
 Alternatively, save the file in UTF-8 using your editor or another tool
 
-) [10 <./Bild 2.jpg>] (PuzzleSpiel.py)
-technischer_bericht.tex:269: Undefined control sequence.
-l.269     \subsubsubsection
+) [11 <./Bild 2.jpg>] (PuzzleSpiel.py)
+technischer_bericht.tex:271: Undefined control sequence.
+l.271     \subsubsubsection
                            {Berechnung fÃ¼r 2 Gelenke}
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
@@ -429,15 +437,15 @@ misspelled it (e.g., `\hobx'), type `I' and the correct
 spelling (e.g., `I\hbox'). Otherwise just continue,
 and I'll forget about whatever was undefined.
 
-<Bild 3.jpg, id=50, 306.14375pt x 237.88875pt>
+<Bild 3.jpg, id=53, 306.14375pt x 237.88875pt>
 File: Bild 3.jpg Graphic file (type jpg)
 <use Bild 3.jpg>
-Package pdftex.def Info: Bild 3.jpg  used on input line 276.
+Package pdftex.def Info: Bild 3.jpg  used on input line 278.
 (pdftex.def)             Requested size: 390.0pt x 303.06636pt.
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
-[11] (PuzzleSpiel.py
+[12] (PuzzleSpiel.py
 
 PuzzleSpiel.py:75: LaTeX Error: Invalid UTF-8 byte sequence (Ã\lst@ECŸ).
 
@@ -468,9 +476,9 @@ or specify an encoding such as \usepackage [latin1]{inputenc}
 in the document preamble.
 Alternatively, save the file in UTF-8 using your editor or another tool
 
-[12 <./Bild 3.jpg>]) [13] (PuzzleSpiel.py)
-technischer_bericht.tex:358: Undefined control sequence.
-l.358     \subsubsubsection
+[13 <./Bild 3.jpg>]) [14] (PuzzleSpiel.py)
+technischer_bericht.tex:360: Undefined control sequence.
+l.360     \subsubsubsection
                            {Berechnung fÃ¼r 3 Gelenke}
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
@@ -479,17 +487,17 @@ spelling (e.g., `I\hbox'). Otherwise just continue,
 and I'll forget about whatever was undefined.
 
 (PuzzleSpiel.py)
-<Bild 4.jpg, id=61, 319.69438pt x 132.99687pt>
+<Bild 4.jpg, id=64, 319.69438pt x 132.99687pt>
 File: Bild 4.jpg Graphic file (type jpg)
 <use Bild 4.jpg>
-Package pdftex.def Info: Bild 4.jpg  used on input line 376.
+Package pdftex.def Info: Bild 4.jpg  used on input line 378.
 (pdftex.def)             Requested size: 390.0pt x 162.24782pt.
 
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
-(PuzzleSpiel.py) [14] (PuzzleSpiel.py)
-Overfull \hbox (5.22998pt too wide) detected at line 401
+(PuzzleSpiel.py) [15] (PuzzleSpiel.py)
+Overfull \hbox (5.22998pt too wide) detected at line 403
 \OML/cmm/m/it/12 wristtarget \OT1/cmr/m/n/12 = [100\OML/cmm/m/it/12 ; \OT1/cmr/
 m/n/12 20] \OMS/cmsy/m/n/12 ^^@ \OT1/cmr/m/n/12 [70 \OMS/cmsy/m/n/12 ^^C \OML/c
 mm/m/it/12 cos\OT1/cmr/m/n/12 (0\OML/cmm/m/it/12 ; \OT1/cmr/m/n/12 77 \OMS/cmsy
@@ -500,25 +508,25 @@ t/12 ; \OT1/cmr/m/n/12 70 \OMS/cmsy/m/n/12 ^^C \OML/cmm/m/it/12 sin\OT1/cmr/m/n
 n/12 ^^@\OT1/cmr/m/n/12 21]
  []
 
-[15 <./Bild 4.jpg>] (PuzzleSpiel.py)
-<Bild 5.jpg, id=68, 304.63812pt x 175.15437pt>
+[16 <./Bild 4.jpg>] (PuzzleSpiel.py)
+<Bild 5.jpg, id=71, 304.63812pt x 175.15437pt>
 File: Bild 5.jpg Graphic file (type jpg)
 <use Bild 5.jpg>
-Package pdftex.def Info: Bild 5.jpg  used on input line 427.
+Package pdftex.def Info: Bild 5.jpg  used on input line 429.
 (pdftex.def)             Requested size: 390.0pt x 224.24226pt.
 
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
-(PuzzleSpiel.py [16])
-<Bild 6.jpg, id=72, 310.15875pt x 99.87312pt>
+(PuzzleSpiel.py [17])
+<Bild 6.jpg, id=75, 310.15875pt x 99.87312pt>
 File: Bild 6.jpg Graphic file (type jpg)
 <use Bild 6.jpg>
-Package pdftex.def Info: Bild 6.jpg  used on input line 442.
+Package pdftex.def Info: Bild 6.jpg  used on input line 444.
 (pdftex.def)             Requested size: 390.0pt x 125.58173pt.
- [17 <./Bild 5.jpg> <./Bild 6.jpg>] (PuzzleSpiel.py)
-(PuzzleSpiel.py) [18]
-Overfull \hbox (45.29265pt too wide) detected at line 516
+ [18 <./Bild 5.jpg> <./Bild 6.jpg>] (PuzzleSpiel.py)
+(PuzzleSpiel.py) [19]
+Overfull \hbox (45.29265pt too wide) detected at line 518
 \OML/cmm/m/it/12 wrist \OT1/cmr/m/n/12 = [266\OML/cmm/m/it/12 ; \OT1/cmr/m/n/12
  275] + [105 \OMS/cmsy/m/n/12 ^^C \OML/cmm/m/it/12 cos\OT1/cmr/m/n/12 (0\OML/cm
 m/m/it/12 ; \OT1/cmr/m/n/12 27 \OMS/cmsy/m/n/12 ^^C \OML/cmm/m/it/12 ^^Y \OT1/c
@@ -531,7 +539,7 @@ n/12 27 \OMS/cmsy/m/n/12 ^^C \OML/cmm/m/it/12 ^^Y \OT1/cmr/m/n/12 + 1\OML/cmm/m
  []
 
 
-Overfull \hbox (171.58168pt too wide) detected at line 519
+Overfull \hbox (171.58168pt too wide) detected at line 521
 \OML/cmm/m/it/12 endeffector \OT1/cmr/m/n/12 = [371\OML/cmm/m/it/12 ; \OT1/cmr/
 m/n/12 272] + [110 \OMS/cmsy/m/n/12 ^^C \OML/cmm/m/it/12 cos\OT1/cmr/m/n/12 (0\
 OML/cmm/m/it/12 ; \OT1/cmr/m/n/12 27 \OMS/cmsy/m/n/12 ^^C \OML/cmm/m/it/12 ^^Y 
@@ -546,7 +554,7 @@ cmsy/m/n/12 ^^C \OML/cmm/m/it/12 ^^Y\OT1/cmr/m/n/12 )] = [451\OML/cmm/m/it/12 ;
  \OT1/cmr/m/n/12 347]
  []
 
-(PuzzleSpiel.py) [19] (PuzzleSpiel.py
+(PuzzleSpiel.py) [20] (PuzzleSpiel.py
 
 PuzzleSpiel.py:187: LaTeX Error: Invalid UTF-8 byte sequence (Ã\lst@EC¼).
 
@@ -607,7 +615,7 @@ or specify an encoding such as \usepackage [latin1]{inputenc}
 in the document preamble.
 Alternatively, save the file in UTF-8 using your editor or another tool
 
-[20]
+[21]
 
 PuzzleSpiel.py:210: LaTeX Error: Invalid UTF-8 byte sequence (Ã\lst@EC¤).
 
@@ -638,8 +646,8 @@ or specify an encoding such as \usepackage [latin1]{inputenc}
 in the document preamble.
 Alternatively, save the file in UTF-8 using your editor or another tool
 
-) [21]
-Overfull \hbox (76.19426pt too wide) in paragraph at lines 535--543
+) [22]
+Overfull \hbox (76.19426pt too wide) in paragraph at lines 537--545
 []\T1/cmr/m/n/12 Die Me-tho-den ^^Pup-da-te_num_joints()^^Q, ^^Pup-da-te_arm_le
 ngth1()^^Q, ^^Qup-da-te_arm_length2()^^Q
  []
@@ -675,7 +683,7 @@ or specify an encoding such as \usepackage [latin1]{inputenc}
 in the document preamble.
 Alternatively, save the file in UTF-8 using your editor or another tool
 
-) (PuzzleSpiel.py [22]
+) (PuzzleSpiel.py [23]
 
 PuzzleSpiel.py:258: LaTeX Error: Invalid UTF-8 byte sequence (Ã\lst@EC¤).
 
@@ -707,7 +715,7 @@ or specify an encoding such as \usepackage [latin1]{inputenc}
 in the document preamble.
 Alternatively, save the file in UTF-8 using your editor or another tool
 
-[23]) (PuzzleSpiel.py
+[24]) (PuzzleSpiel.py
 
 PuzzleSpiel.py:288: LaTeX Error: Invalid UTF-8 byte sequence (Ã\lst@EC¤).
 
@@ -739,7 +747,7 @@ or specify an encoding such as \usepackage [latin1]{inputenc}
 in the document preamble.
 Alternatively, save the file in UTF-8 using your editor or another tool
 
-) (PuzzleSpiel.py [24]) (PuzzleSpiel.py
+) (PuzzleSpiel.py [25]) (PuzzleSpiel.py
 
 PuzzleSpiel.py:308: LaTeX Error: Invalid UTF-8 byte sequence (Ã\lst@EC¶).
 
@@ -755,7 +763,7 @@ or specify an encoding such as \usepackage [latin1]{inputenc}
 in the document preamble.
 Alternatively, save the file in UTF-8 using your editor or another tool
 
-[25]) (PuzzleSpiel.py) (PuzzleSpiel.py
+[26]) (PuzzleSpiel.py) (PuzzleSpiel.py
 
 PuzzleSpiel.py:364: LaTeX Error: Invalid UTF-8 byte sequence (Ã\lst@EC¼).
 
@@ -786,7 +794,7 @@ or specify an encoding such as \usepackage [latin1]{inputenc}
 in the document preamble.
 Alternatively, save the file in UTF-8 using your editor or another tool
 
-[26]
+[27]
 
 PuzzleSpiel.py:375: LaTeX Error: Invalid UTF-8 byte sequence (Ã\lst@EC¼).
 
@@ -804,8 +812,8 @@ in the document preamble.
 Alternatively, save the file in UTF-8 using your editor or another tool
 
 )
-technischer_bericht.tex:609: Misplaced alignment tab character &.
-l.609 ...r Kollisionserkennung betrifft das Drag &
+technischer_bericht.tex:611: Misplaced alignment tab character &.
+l.611 ...r Kollisionserkennung betrifft das Drag &
                                                    Drop von Puzzleteilen. Hi...
 I can't figure out why you would want to use a tab mark
 here. If you just want an ampersand, the remedy is
@@ -815,12 +823,12 @@ you're probably due for more error messages, and you
 might try typing `S' now just to see what is salvageable.
 
 
-Overfull \hbox (34.26257pt too wide) in paragraph at lines 619--626
+Overfull \hbox (34.26257pt too wide) in paragraph at lines 621--628
 \T1/cmr/m/n/12 bei der Po-si-tio-nie-rung des End-ef-fek-tors von Be-deu-tung. 
 Die Me-tho-de ^^Pon_press(self,
  []
 
-[27] [28]
+[28] [29]
 (C:/Users\ScharnkeNikias\OneDrive - RealCore Group GmbH\Dokumente\Mathe\mathe\a
 uxil\technischer_bericht.aux)
  ***********
@@ -829,10 +837,10 @@ L3 programming layer <2024-01-04>
  ***********
  ) 
 Here is how much of TeX's memory you used:
- 6007 strings out of 474485
- 93756 string characters out of 5739486
+ 6014 strings out of 474485
+ 94072 string characters out of 5739486
  2163542 words of memory out of 5000000
- 28196 multiletter control sequences out of 15000+600000
+ 28200 multiletter control sequences out of 15000+600000
  570735 words of font info for 65 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  57i,6n,65p,397b,1892s stack positions out of 10000i,1000n,20000p,200000b,200000s
@@ -856,9 +864,9 @@ ocal/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Users/Scharn
 keNikias/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy8.pfb
 >
 Output written on "C:/Users\ScharnkeNikias\OneDrive - RealCore Group GmbH\Dokum
-ente\Mathe\mathe\out\technischer_bericht.pdf" (28 pages, 415263 bytes).
+ente\Mathe\mathe\out\technischer_bericht.pdf" (29 pages, 416590 bytes).
 PDF statistics:
- 564 PDF objects out of 1000 (max. 8388607)
+ 568 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
  31 words of extra memory for PDF output out of 10000 (max. 10000000)
 
