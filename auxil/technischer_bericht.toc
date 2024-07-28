@@ -1,22 +1,22 @@
 \babel@toc {ngerman}{}\relax 
-\contentsline {section}{\numberline {1}Motivation}{4}{}%
-\contentsline {section}{\numberline {2}Verwandte Arbeiten}{4}{}%
-\contentsline {section}{\numberline {3}Projektübersicht}{5}{}%
-\contentsline {section}{\numberline {4}Entwicklungsprozess}{5}{}%
-\contentsline {section}{\numberline {5}Erweiterungsmöglichkeiten}{6}{}%
-\contentsline {section}{\numberline {6}Schlussfolgerung}{7}{}%
-\contentsline {section}{\numberline {7}Implementierung}{8}{}%
-\contentsline {subsection}{\numberline {7.1}Gegenstand der Entwicklung}{8}{}%
-\contentsline {subsection}{\numberline {7.2}Roboterarm}{8}{}%
-\contentsline {subsubsection}{\numberline {7.2.1}Initialisierung}{8}{}%
-\contentsline {subsubsection}{\numberline {7.2.2}Berechnung Winkel}{9}{}%
-\contentsline {subsection}{\numberline {7.3}GUI-Klasse}{21}{}%
-\contentsline {subsubsection}{\numberline {7.3.1}Konfigurationspanel}{21}{}%
-\contentsline {subsubsection}{\numberline {7.3.2}Puzzleteile und Grid (Zielfläche)}{23}{}%
-\contentsline {subsubsection}{\numberline {7.3.3}Puzzleteile bewegen}{25}{}%
-\contentsline {subsubsection}{\numberline {7.3.4}Puzzleteile aufnehmen und ablegen}{26}{}%
-\contentsline {subsubsection}{\numberline {7.3.5}Überprüfung der Position}{27}{}%
-\contentsline {subsection}{\numberline {7.4}Kollisionserkennung}{28}{}%
-\contentsline {subsubsection}{\numberline {7.4.1}Kollisionserkennung beim Drag \& Drop von Puzzleteilen}{28}{}%
-\contentsline {subsubsection}{\numberline {7.4.2}Kollisionserkennung bei der Positionierung des Endeffektors}{28}{}%
-\contentsline {subsubsection}{\numberline {7.4.3}Kollisionserkennung während der Armbewegung}{29}{}%
+\contentsline {section}{\numberline {1}Motivation}{5}{section.1}%
+\contentsline {section}{\numberline {2}Verwandte Arbeiten}{5}{section.2}%
+\contentsline {section}{\numberline {3}Projektübersicht}{6}{section.3}%
+\contentsline {section}{\numberline {4}Entwicklungsprozess}{6}{section.4}%
+\contentsline {section}{\numberline {5}Implementierung}{7}{section.5}%
+\contentsline {subsection}{\numberline {5.1}Gegenstand der Entwicklung}{7}{subsection.5.1}%
+\contentsline {subsection}{\numberline {5.2}Roboterarm}{7}{subsection.5.2}%
+\contentsline {subsubsection}{\numberline {5.2.1}Initialisierung}{8}{subsubsection.5.2.1}%
+\contentsline {subsubsection}{\numberline {5.2.2}Berechnung Winkel}{9}{subsubsection.5.2.2}%
+\contentsline {subsection}{\numberline {5.3}GUI-Klasse}{16}{subsection.5.3}%
+\contentsline {subsubsection}{\numberline {5.3.1}Konfigurationspanel}{17}{subsubsection.5.3.1}%
+\contentsline {subsubsection}{\numberline {5.3.2}Puzzleteile und Grid (Zielfläche)}{19}{subsubsection.5.3.2}%
+\contentsline {subsubsection}{\numberline {5.3.3}Puzzleteile bewegen}{20}{subsubsection.5.3.3}%
+\contentsline {subsubsection}{\numberline {5.3.4}Puzzleteile aufnehmen und ablegen}{21}{subsubsection.5.3.4}%
+\contentsline {subsubsection}{\numberline {5.3.5}Überprüfung der Position}{22}{subsubsection.5.3.5}%
+\contentsline {subsection}{\numberline {5.4}Kollisionserkennung}{23}{subsection.5.4}%
+\contentsline {subsubsection}{\numberline {5.4.1}Kollisionserkennung beim Drag \& Drop von Puzzleteilen}{23}{subsubsection.5.4.1}%
+\contentsline {subsubsection}{\numberline {5.4.2}Kollisionserkennung bei der Positionierung des Endeffektors}{23}{subsubsection.5.4.2}%
+\contentsline {subsubsection}{\numberline {5.4.3}Kollisionserkennung während der Armbewegung}{24}{subsubsection.5.4.3}%
+\contentsline {section}{\numberline {6}Erweiterungsmöglichkeiten}{24}{section.6}%
+\contentsline {section}{\numberline {7}Schlussfolgerung}{24}{section.7}%
