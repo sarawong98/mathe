@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (MiKTeX 24.1) (preloaded format=pdflatex 2024.6.10)  29 JUL 2024 00:17
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (MiKTeX 24.1) (preloaded format=pdflatex 2024.6.10)  29 JUL 2024 00:26
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -357,25 +357,25 @@ File: l3backend-pdftex.def 2024-01-04 L3 backend support: PDF output (pdfTeX)
 ) (C:/Users\sari3\PycharmProjects\mathe\auxil\technischer_bericht.aux)
 \openout1 = `technischer_bericht.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 80.
-LaTeX Font Info:    ... okay on input line 80.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 80.
-LaTeX Font Info:    ... okay on input line 80.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 80.
-LaTeX Font Info:    ... okay on input line 80.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 80.
-LaTeX Font Info:    ... okay on input line 80.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 80.
-LaTeX Font Info:    ... okay on input line 80.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 80.
-LaTeX Font Info:    ... okay on input line 80.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 80.
-LaTeX Font Info:    ... okay on input line 80.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 80.
-LaTeX Font Info:    ... okay on input line 80.
-LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 80.
-LaTeX Font Info:    ... okay on input line 80.
-Package hyperref Info: Link coloring OFF on input line 80.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 81.
+LaTeX Font Info:    ... okay on input line 81.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 81.
+LaTeX Font Info:    ... okay on input line 81.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 81.
+LaTeX Font Info:    ... okay on input line 81.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 81.
+LaTeX Font Info:    ... okay on input line 81.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 81.
+LaTeX Font Info:    ... okay on input line 81.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 81.
+LaTeX Font Info:    ... okay on input line 81.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 81.
+LaTeX Font Info:    ... okay on input line 81.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 81.
+LaTeX Font Info:    ... okay on input line 81.
+LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 81.
+LaTeX Font Info:    ... okay on input line 81.
+Package hyperref Info: Link coloring OFF on input line 81.
 
 (C:/Users\sari3\PycharmProjects\mathe\auxil\technischer_bericht.out)
 (C:/Users\sari3\PycharmProjects\mathe\auxil\technischer_bericht.out)
@@ -410,7 +410,7 @@ fg
 File: epstopdf-sys.cfg 2021/03/18 v2.0 Configuration of epstopdf for MiKTeX
 ))
 LaTeX Font Info:    Trying to load font information for T1+cmtt on input line 8
-3.
+4.
  (C:\Users\sari3\AppData\Local\Programs\MiKTeX\tex/latex/base\t1cmtt.fd
 File: t1cmtt.fd 2023/04/13 v2.5m Standard LaTeX font definitions
 )
@@ -438,8 +438,8 @@ File: t1cmtt.fd 2023/04/13 v2.5m Standard LaTeX font definitions
  [4
 
 ]
-technischer_bericht.tex:133: Misplaced alignment tab character &.
-l.133     Der Greifarm wird durch Drag &
+technischer_bericht.tex:134: Misplaced alignment tab character &.
+l.134     Der Greifarm wird durch Drag &
                                          Drop interaktiv gesteuert und verwe...
 I can't figure out why you would want to use a tab mark
 here. If you just want an ampersand, the remedy is
@@ -451,22 +451,22 @@ might try typing `S' now just to see what is salvageable.
 [5
 
 ] [6]
-Underfull \hbox (badness 10000) in paragraph at lines 196--200
+Underfull \hbox (badness 10000) in paragraph at lines 197--201
 
  []
 
 [7]
 Package hyperref Info: bookmark level for unknown lstlisting defaults to 0 on i
-nput line 201.
+nput line 202.
  (PuzzleSpiel.py) [8]
 <Bild 1.jpg, id=242, 303.1325pt x 209.78375pt>
 File: Bild 1.jpg Graphic file (type jpg)
 <use Bild 1.jpg>
-Package pdftex.def Info: Bild 1.jpg  used on input line 218.
+Package pdftex.def Info: Bild 1.jpg  used on input line 219.
 (pdftex.def)             Requested size: 426.79134pt x 295.36617pt.
  (PuzzleSpiel.py)
-technischer_bericht.tex:227: Undefined control sequence.
-l.227     \subsubsubsection
+technischer_bericht.tex:228: Undefined control sequence.
+l.228     \subsubsubsection
                            {Berechnung für 1 Gelenk}
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
@@ -478,11 +478,11 @@ and I'll forget about whatever was undefined.
 <Bild 2.jpg, id=253, 301.62688pt x 204.765pt>
 File: Bild 2.jpg Graphic file (type jpg)
 <use Bild 2.jpg>
-Package pdftex.def Info: Bild 2.jpg  used on input line 242.
+Package pdftex.def Info: Bild 2.jpg  used on input line 243.
 (pdftex.def)             Requested size: 426.79134pt x 289.73412pt.
  (PuzzleSpiel.py) [10 <./Bild 2.jpg>] (PuzzleSpiel.py)
-technischer_bericht.tex:267: Undefined control sequence.
-l.267     \subsubsubsection
+technischer_bericht.tex:268: Undefined control sequence.
+l.268     \subsubsubsection
                            {Berechnung für 2 Gelenke}
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
@@ -493,11 +493,11 @@ and I'll forget about whatever was undefined.
 <Bild 3.jpg, id=262, 306.14375pt x 237.88875pt>
 File: Bild 3.jpg Graphic file (type jpg)
 <use Bild 3.jpg>
-Package pdftex.def Info: Bild 3.jpg  used on input line 274.
+Package pdftex.def Info: Bild 3.jpg  used on input line 275.
 (pdftex.def)             Requested size: 426.79134pt x 331.65533pt.
 [11 <./Bild 3.jpg>] (PuzzleSpiel.py) [12] (PuzzleSpiel.py)
-technischer_bericht.tex:356: Undefined control sequence.
-l.356     \subsubsubsection
+technischer_bericht.tex:357: Undefined control sequence.
+l.357     \subsubsubsection
                            {Berechnung für 3 Gelenke}
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
@@ -508,7 +508,7 @@ and I'll forget about whatever was undefined.
 <Bild 5.jpg, id=280, 304.63812pt x 175.15437pt>
 File: Bild 5.jpg Graphic file (type jpg)
 <use Bild 5.jpg>
-Package pdftex.def Info: Bild 5.jpg  used on input line 364.
+Package pdftex.def Info: Bild 5.jpg  used on input line 365.
 (pdftex.def)             Requested size: 426.79134pt x 245.3962pt.
 
 LaTeX Warning: `h' float specifier changed to `ht'.
@@ -517,14 +517,14 @@ LaTeX Warning: `h' float specifier changed to `ht'.
 <Bild 6.jpg, id=289, 310.15875pt x 99.87312pt>
 File: Bild 6.jpg Graphic file (type jpg)
 <use Bild 6.jpg>
-Package pdftex.def Info: Bild 6.jpg  used on input line 379.
+Package pdftex.def Info: Bild 6.jpg  used on input line 380.
 (pdftex.def)             Requested size: 426.79134pt x 137.42883pt.
 
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
 [14 <./Bild 5.jpg>] (PuzzleSpiel.py) (PuzzleSpiel.py) [15 <./Bild 6.jpg>]
-Overfull \hbox (8.50131pt too wide) detected at line 452
+Overfull \hbox (8.50131pt too wide) detected at line 453
 \OML/cmm/m/it/12 wrist \OT1/cmr/m/n/12 = [266\OML/cmm/m/it/12 ; \OT1/cmr/m/n/12
  275] + [105 \OMS/cmsy/m/n/12 ^^C \OML/cmm/m/it/12 cos\OT1/cmr/m/n/12 (0\OML/cm
 m/m/it/12 ; \OT1/cmr/m/n/12 27 \OMS/cmsy/m/n/12 ^^C \OML/cmm/m/it/12 ^^Y \OT1/c
@@ -537,14 +537,14 @@ n/12 27 \OMS/cmsy/m/n/12 ^^C \OML/cmm/m/it/12 ^^Y \OT1/cmr/m/n/12 + 1\OML/cmm/m
  []
 
 (PuzzleSpiel.py) [16] (PuzzleSpiel.py)
-Underfull \hbox (badness 10000) in paragraph at lines 474--482
+Underfull \hbox (badness 10000) in paragraph at lines 475--483
 []\T1/cmr/m/n/12 Die Me-tho-den \T1/cmr/m/it/12 up-da-te_num_joints()\T1/cmr/m/
 n/12 , \T1/cmr/m/it/12 up-da-te_arm_length1()\T1/cmr/m/n/12 , \T1/cmr/m/it/12 u
 p-da-
  []
 
 
-Underfull \hbox (badness 4765) in paragraph at lines 474--482
+Underfull \hbox (badness 4765) in paragraph at lines 475--483
 \T1/cmr/m/it/12 te_arm_length2() \T1/cmr/m/n/12 und \T1/cmr/m/it/12 up-da-te_ar
 m_length3() \T1/cmr/m/n/12 die-nen da-zu, die Pa-ra-me-ter
  []
@@ -552,8 +552,8 @@ m_length3() \T1/cmr/m/n/12 die-nen da-zu, die Pa-ra-me-ter
 [17] (PuzzleSpiel.py) [18] (PuzzleSpiel.py) [19] (PuzzleSpiel.py)
 (PuzzleSpiel.py) (PuzzleSpiel.py) [20] (PuzzleSpiel.py) (PuzzleSpiel.py
 [21]) (PuzzleSpiel.py) (PuzzleSpiel.py [22])
-technischer_bericht.tex:551: Misplaced alignment tab character &.
-l.551 ...r Kollisionserkennung betrifft das Drag &
+technischer_bericht.tex:552: Misplaced alignment tab character &.
+l.552 ...r Kollisionserkennung betrifft das Drag &
                                                    Drop von Puzzleteilen. Hi...
 I can't figure out why you would want to use a tab mark
 here. If you just want an ampersand, the remedy is
@@ -599,9 +599,9 @@ sfonts/cm/cmr8.pfb><C:/Users/sari3/AppData/Local/Programs/MiKTeX/fonts/type1/pu
 blic/amsfonts/cm/cmsy10.pfb><C:/Users/sari3/AppData/Local/Programs/MiKTeX/fonts
 /type1/public/amsfonts/cm/cmsy8.pfb>
 Output written on C:/Users\sari3\PycharmProjects\mathe\out\technischer_bericht.
-pdf (26 pages, 478312 bytes).
+pdf (26 pages, 481358 bytes).
 PDF statistics:
- 1095 PDF objects out of 1200 (max. 8388607)
+ 1101 PDF objects out of 1200 (max. 8388607)
  292 named destinations out of 1000 (max. 500000)
  194 words of extra memory for PDF output out of 10000 (max. 10000000)
 
