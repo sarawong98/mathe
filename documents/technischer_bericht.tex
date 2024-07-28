@@ -66,7 +66,7 @@
     \tableofcontents
     \clearpage
     \listoffigures
-    \clearpage
+    \clearpage-
 
 
     \section{Motivation}
@@ -142,43 +142,6 @@
     Implementierung, die Ergebnisse und das Feedback aus der Präsentation zusammengefasst wurden. Die
     abschließende Bewertung reflektierte die erfolgreiche Umsetzung des Projekts und bot Raum für mögliche
     Verbesserungsvorschläge für zukünftige Entwicklungen.
-
-
-    \section{Erweiterungsmöglichkeiten}
-    Das Projekt bietet mehrere Ansatzpunkte für zukünftige Erweiterungen. Eine wesentliche Möglichkeit besteht
-    in der Erweiterung der Konfigurationsmöglichkeiten des Roboterarms. Derzeit können Benutzer grundlegende
-    Parameter anpassen, um die Kinematik des Arms zu erforschen. Zukünftige Entwicklungen könnten es ermöglichen,
-    noch detailliertere Aspekte der Armkonfiguration zu verändern. Dazu könnten erweiterte Optionen zur
-    Feinabstimmung der Gelenkwinkel und Geschwindigkeiten gehören sowie zusätzliche Konfigurationsparameter,
-    die eine noch präzisere Anpassung und Untersuchung der Bewegungsabläufe ermöglichen.
-
-    Neben den funktionalen Erweiterungen besteht auch die Möglichkeit zur Verbesserung des Designs der
-    Benutzeroberfläche. Die aktuelle Benutzeroberfläche bietet eine funktionale Grundstruktur, jedoch besteht
-    Potenzial für eine ansprechendere und intuitivere Gestaltung. Eine Überarbeitung könnte visuelle Hilfsmittel,
-    wie interaktive Anleitungen und ansprechende Grafiken, beinhalten. Solche Verbesserungen könnten die
-    Benutzerfreundlichkeit erhöhen und die Lernkurve für neue Benutzer verringern, indem sie eine klarere
-    und intuitivere Navigation durch die Simulation ermöglichen.
-
-
-    \section{Schlussfolgerung}
-    Das entwickelte 2D-Puzzle-Spiel mit Roboterarmsteuerung bietet eine solide Grundlage für die interaktive
-    Simulation von Roboterkinematik. Durch die Möglichkeit, verschiedene Konfigurationen des Roboterarms zu
-    testen, können Benutzer ein tieferes Verständnis für die Funktionsweise und Bewegungsabläufe von Roboterarmen
-    entwickeln. Die flexible Konfigurationsmöglichkeit und die Drag-and-Drop-Funktionalität haben sich als
-    zentrale Merkmale der Anwendung herausgestellt.
-
-    Während der Umsetzung des Projekts haben wir wertvolle Erkenntnisse gewonnen. Besonders hervorzuheben
-    ist, dass die Implementierung eines Roboterarms mit drei Gelenken deutlich komplexer und fehleranfälliger
-    war als ursprünglich erwartet. Die Herausforderungen bei der mathematischen Modellierung und der
-    kinematischen Steuerung haben gezeigt, wie anspruchsvoll die Entwicklung eines solchen Systems sein kann.
-    Bei der Simulation traten immer wieder Schwierigkeiten auf, insbesondere bei der exakten Positionierung der
-    Endeffektoren. Die präzise Berechnung der Gelenkwinkel und deren Koordination erwiesen sich als komplexe
-    Aufgaben, die häufig Anpassungen und Fehlersuche erforderten. Erst durch eine neue Herangehensweise gelang
-    die genaue Positionierung der Endeffektors. Trotz der sorgfältigen Planung und Implementierung sind weiterhin
-    Verbesserungen und Erweiterungen möglich, um die Funktionalität und Benutzerfreundlichkeit weiter zu
-    optimieren. Die gesammelten Erfahrungen haben unsere Kenntnisse in der Roboterkinematik und der praktischen
-    Anwendung von Simulationstechniken erheblich erweitert.
-
 
     \section{Implementierung}
 
@@ -630,5 +593,40 @@
     Während der Armbewegung wird die Methode “on\_drag(self, event)” aufgerufen, die es ermöglicht, dass
     das ausgewählte Puzzleteil der Bewegung des Roboterarms folgt. Hierbei wird sichergestellt, dass das
     Puzzleteil immer entsprechend der Position des Endeffektors aktualisiert wird.
+
+    \section{Erweiterungsmöglichkeiten}
+    Das Projekt bietet mehrere Ansatzpunkte für zukünftige Erweiterungen. Eine wesentliche Möglichkeit besteht
+    in der Erweiterung der Konfigurationsmöglichkeiten des Roboterarms. Derzeit können Benutzer grundlegende
+    Parameter anpassen, um die Kinematik des Arms zu erforschen. Zukünftige Entwicklungen könnten es ermöglichen,
+    noch detailliertere Aspekte der Armkonfiguration zu verändern. Dazu könnten erweiterte Optionen zur
+    Feinabstimmung der Gelenkwinkel und Geschwindigkeiten gehören sowie zusätzliche Konfigurationsparameter,
+    die eine noch präzisere Anpassung und Untersuchung der Bewegungsabläufe ermöglichen.
+
+    Neben den funktionalen Erweiterungen besteht auch die Möglichkeit zur Verbesserung des Designs der
+    Benutzeroberfläche. Die aktuelle Benutzeroberfläche bietet eine funktionale Grundstruktur, jedoch besteht
+    Potenzial für eine ansprechendere und intuitivere Gestaltung. Eine Überarbeitung könnte visuelle Hilfsmittel,
+    wie interaktive Anleitungen und ansprechende Grafiken, beinhalten. Solche Verbesserungen könnten die
+    Benutzerfreundlichkeit erhöhen und die Lernkurve für neue Benutzer verringern, indem sie eine klarere
+    und intuitivere Navigation durch die Simulation ermöglichen.
+
+
+    \section{Schlussfolgerung}
+    Das entwickelte 2D-Puzzle-Spiel mit Roboterarmsteuerung bietet eine solide Grundlage für die interaktive
+    Simulation von Roboterkinematik. Durch die Möglichkeit, verschiedene Konfigurationen des Roboterarms zu
+    testen, können Benutzer ein tieferes Verständnis für die Funktionsweise und Bewegungsabläufe von Roboterarmen
+    entwickeln. Die flexible Konfigurationsmöglichkeit und die Drag-and-Drop-Funktionalität haben sich als
+    zentrale Merkmale der Anwendung herausgestellt.
+
+    Während der Umsetzung des Projekts haben wir wertvolle Erkenntnisse gewonnen. Besonders hervorzuheben
+    ist, dass die Implementierung eines Roboterarms mit drei Gelenken deutlich komplexer und fehleranfälliger
+    war als ursprünglich erwartet. Die Herausforderungen bei der mathematischen Modellierung und der
+    kinematischen Steuerung haben gezeigt, wie anspruchsvoll die Entwicklung eines solchen Systems sein kann.
+    Bei der Simulation traten immer wieder Schwierigkeiten auf, insbesondere bei der exakten Positionierung der
+    Endeffektoren. Die präzise Berechnung der Gelenkwinkel und deren Koordination erwiesen sich als komplexe
+    Aufgaben, die häufig Anpassungen und Fehlersuche erforderten. Erst durch eine neue Herangehensweise gelang
+    die genaue Positionierung der Endeffektors. Trotz der sorgfältigen Planung und Implementierung sind weiterhin
+    Verbesserungen und Erweiterungen möglich, um die Funktionalität und Benutzerfreundlichkeit weiter zu
+    optimieren. Die gesammelten Erfahrungen haben unsere Kenntnisse in der Roboterkinematik und der praktischen
+    Anwendung von Simulationstechniken erheblich erweitert.
 
 \end{document}
